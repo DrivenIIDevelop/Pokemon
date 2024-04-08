@@ -1,17 +1,14 @@
 from account_app import app
-from flask import render_template
+from flask import jsonify
 
 @app.route("/")
 @app.route("/home")
 def home():
-	title = "Homepage"
-	return render_template("home.html", title=title)
-
+	return jsonify({ 'title': 'Homepage' })
 
 @app.route("/account")
 def account():
 	return "<h1>Account Page</h1>"
-
 
 @app.route("/login")
 def login():
