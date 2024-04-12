@@ -7,18 +7,17 @@
 Vite does three major things for us:
 
 1. Simplifies the setup and management of the technologies we're using.
-   - Provides out-of-the-box support Typescript, React, PostCSS, Tailwind, and [Dotenv](https://www.npmjs.com/package/dotenv)
-   - Has a large library of plugins for anything not natively supported.
-    
+    - Provides out-of-the-box support Typescript, React, PostCSS, Tailwind, and [Dotenv](https://www.npmjs.com/package/dotenv)
+    - Has a large library of plugins for anything not natively supported.
 2. Provides the features found in tools like [Webpack](https://webpack.js.org/) and [Rollup](https://rollupjs.org/).
-  
-   - For example, this allows us to create a proxy for the dev server.
-    
+
+    - For example, this allows us to create a proxy for the dev server.
+
 3. Optimizes the production build
 
 #### Documentation & Tutorials
 
-- [Fireship - Vite in 100 Seconds](https://youtu.be/KCrXgy8qtjM?si=DvU9XrR-YghF7LA6)
+-   [Fireship - Vite in 100 Seconds](https://youtu.be/KCrXgy8qtjM?si=DvU9XrR-YghF7LA6)
 
 ### [Typescript](https://www.typescriptlang.org/)
 
@@ -26,8 +25,8 @@ TypeScript is simply a type safe version of JavaScript. It compiles directly int
 
 #### Documentation & Tutorials
 
-- [Fireship - Typescript in 100 Seconds](https://youtu.be/zQnBQ4tB3ZA?si=i6VrYnP2C-OElaWn)
-- [Fireship - Typescript Tutorial](https://youtu.be/ahCwqrYpIuM?si=Le1yasvXL1cbG3d3)
+-   [Fireship - Typescript in 100 Seconds](https://youtu.be/zQnBQ4tB3ZA?si=i6VrYnP2C-OElaWn)
+-   [Fireship - Typescript Tutorial](https://youtu.be/ahCwqrYpIuM?si=Le1yasvXL1cbG3d3)
 
 ### [React](https://react.dev/)
 
@@ -35,8 +34,8 @@ React is the industry standard for creating reusable components. It also helps w
 
 #### Documentation & Tutorials
 
-- [Fireship - React in 100 Seconds](https://youtu.be/Tn6-PIqc4UM?si=3dwpHx6Y5WsljKbP)
-- [Fireship - React Playlist](https://youtube.com/playlist?list=PL0vfts4VzfNgUUEtEjxDVfh4iocVR3qIb&si=jmJh0qkJMn4YMKEO)
+-   [Fireship - React in 100 Seconds](https://youtu.be/Tn6-PIqc4UM?si=3dwpHx6Y5WsljKbP)
+-   [Fireship - React Playlist](https://youtube.com/playlist?list=PL0vfts4VzfNgUUEtEjxDVfh4iocVR3qIb&si=jmJh0qkJMn4YMKEO)
 
 ### [React Redux (Redux Toolkit)](https://redux-toolkit.js.org/)
 
@@ -50,8 +49,8 @@ Remix Router also makes implementing page templates much simpler and allows us t
 
 #### Documentation & Tutorials
 
-- [Defining Routes](https://vite-remix-router.vercel.app/guides/defining-routes.html)
-- [Using Loaders](https://vite-remix-router.vercel.app/guides/using-data-apis.html#loaders)
+-   [Defining Routes](https://vite-remix-router.vercel.app/guides/defining-routes.html)
+-   [Using Loaders](https://vite-remix-router.vercel.app/guides/using-data-apis.html#loaders)
 
 ### [Tailwind](https://tailwindcss.com/)
 
@@ -59,8 +58,8 @@ No one likes writing CSS. Hence, Tailwind. Unlike Bootstrap, it's utility-first,
 
 #### Documentation & Tutorials
 
-- [Fireship - Tailwind in 100 Seconds](https://youtu.be/mr15Xzb1Ook?si=ArFHS_-GZfcVTPyT)
-- [Fireship - Ultimate Tailwind CSS Tutorial](https://youtu.be/pfaSUYaSgRo?si=ChCeBqk2f2kuJi8U)
+-   [Fireship - Tailwind in 100 Seconds](https://youtu.be/mr15Xzb1Ook?si=ArFHS_-GZfcVTPyT)
+-   [Fireship - Ultimate Tailwind CSS Tutorial](https://youtu.be/pfaSUYaSgRo?si=ChCeBqk2f2kuJi8U)
 
 ### [PostCSS](https://postcss.org/)
 
