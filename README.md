@@ -1,7 +1,3 @@
-# An Accounting application
-An Application with the DrivenIIDevelop Pokemon Team
+# Cash Dragon
 
-# Technologies used
-- Python 3.12
-- Flask 3.0.2
-...
+> A finance application create by Team Pokemon for DevC 1.0

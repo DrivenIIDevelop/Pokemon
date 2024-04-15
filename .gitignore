@@ -1,2 +1,11 @@
-venv
-__pychache__
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local Environmental Varables
+*.local
