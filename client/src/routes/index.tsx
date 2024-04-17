@@ -1,21 +1,20 @@
-import { useState, useEffect } from 'react'
+import { LoaderFunction, useLoaderData } from 'react-router-dom'
+
+interface ApiData {
+    title: string
+}
+
+export const loader: LoaderFunction = async () => {
+    const res = await fetch('/api')
+    if (res.ok) {
+        const { title }: ApiData = await res.json()
+        return title
+    } else {
+        return `Error: ${res.statusText} (${res.status})`
+    }
+}
 
 export function Component() {
-    const [title, setTitle] = useState<string>('')
-
-    useEffect(() => {
-        void getTitle()
-    })
-
-    async function getTitle() {
-        const res = await fetch('/api')
-        if (res.ok) {
-            const { title } = (await res.json()) as { title: string }
-            setTitle(title)
-        } else {
-            console.error(`${res.statusText} (${res.status})`)
-        }
-    }
-
+    const title = useLoaderData() as ApiData['title']
     return <h1>{title}</h1>
 }
