@@ -7,7 +7,7 @@ interface ApiData {
 export const loader: LoaderFunction = async () => {
     const res = await fetch('/api')
     if (res.ok) {
-        const { title }: ApiData = await res.json()
+        const { title } = (await res.json()) as ApiData
         return title
     } else {
         return `Error: ${res.statusText} (${res.status})`
