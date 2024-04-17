@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import '../App.css'
+import Button from '@mui/material/Button'
 
 export function Component() {
     const [title, setTitle] = useState<string>('')
@@ -32,6 +33,9 @@ export function Component() {
             </div>
             <h1>{title}</h1>
             <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+            <Button variant="outlined" onClick={() => location.reload()}>
+                Refresh
+            </Button>
         </>
     )
 }
