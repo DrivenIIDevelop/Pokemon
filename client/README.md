@@ -52,6 +52,15 @@ Remix Router also makes implementing page templates much simpler and allows us t
 -   [Defining Routes](https://vite-remix-router.vercel.app/guides/defining-routes.html)
 -   [Using Loaders](https://vite-remix-router.vercel.app/guides/using-data-apis.html#loaders)
 
+### [MUI - Material UI](https://mui.com/material-ui/getting-started/)
+
+MUI provides a components library that follows Material UI's design guidelines. It'll save us from writing a lot of basic code and help create a clean UI.
+
+#### Documentation & Tutorials
+
+-   [Components](https://mui.com/material-ui/all-components/)
+-   [Component API](https://mui.com/material-ui/api/accordion/)
+
 ### [Tailwind](https://tailwindcss.com/)
 
 No one likes writing CSS. Hence, Tailwind. Unlike Bootstrap, it's utility-first, giving us much more control by default.
