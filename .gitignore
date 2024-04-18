@@ -9,3 +9,6 @@
 
 # Local Environmental Varables
 *.local
+venv
+.venv
+__pycache__
