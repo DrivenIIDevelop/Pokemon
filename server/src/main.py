@@ -7,7 +7,7 @@ MODE = getenv('MODE', 'development')
 dotenv_path = Path('../.env.' + MODE)
 load_dotenv(dotenv_path=dotenv_path)
 
-f_debug = True # global flag for debugging
+f_debug = True # global flag for debugging 
 
 def main():
 	app.run(
