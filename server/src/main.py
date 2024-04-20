@@ -1,4 +1,4 @@
-from account_app import app
+from src.account_app import app
 from dotenv import load_dotenv
 from pathlib import Path
 from os import getenv
