@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
-from app import app, db
-from app.models import User
+from flask import request, jsonify
+from accounts import app
+from accounts.models import db, User
 
 # Create user
 @app.route('/users', methods=['POST'])

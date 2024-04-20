@@ -1,7 +1,5 @@
-from flask import Flask
+from accounts import app
 from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://marxia:abc123@localhost/cashdragon'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -16,4 +14,4 @@ class User(db.Model):
   
     
     def __repr__(self):
-        return f"<User {self.username}>"  
+        return f"<User {self.username}>"
