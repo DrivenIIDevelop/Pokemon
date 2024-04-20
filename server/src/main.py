@@ -1,4 +1,4 @@
-from src.account_app import app
+from accounts import app
 from dotenv import load_dotenv
 from pathlib import Path
 from os import getenv
@@ -15,7 +15,6 @@ def main():
 		host=getenv('VITE_API_HOST'),
 		port=getenv('VITE_API_PORT')
 	)
-	
 
 if __name__ == "__main__":
 	main()
