@@ -1,6 +1,6 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
-export default responsiveFontSizes(
+const theme = responsiveFontSizes(
     createTheme({
         palette: {
             mode: 'light',
@@ -23,3 +23,5 @@ export default responsiveFontSizes(
         },
     }),
 )
+
+export default theme
