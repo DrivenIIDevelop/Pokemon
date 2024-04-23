@@ -6,11 +6,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Income(db.Model):
+class Expenses(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     amount = db.Column(db.Integer, unique=True, nullable=False)  
     date = db.Column(db.DateTime, unique=True, nullable=False)
   
     
     def __repr__(self):
-        return f"<Income {self.amount}>"
+        return f"<Expense {self.amount}>"
