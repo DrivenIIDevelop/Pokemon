@@ -1,3 +1,3 @@
 export function Component() {
-    return <h1>Budget</h1>
+  return <h1>Budget</h1>
 }
