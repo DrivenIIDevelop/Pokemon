@@ -6,30 +6,30 @@ import BudgetModeContext, { BudgetMode } from '../../contexts/BudgetModeContext'
 import BudgetGraph from '../../components/BudgetGraph'
 
 export function Component() {
-    const [mode, setMode] = useState<BudgetMode>('budget')
+  const [mode, setMode] = useState<BudgetMode>('budget')
 
-    return (
-        <BudgetModeContext.Provider value={mode}>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: '100dvw',
-                }}
-            >
-                <ToggleButtonGroup
-                    value={mode}
-                    onChange={(_, value) => setMode(value)}
-                    exclusive
-                    size="small"
-                    sx={{ backgroundColor: 'primary.main' }}
-                >
-                    <ToggleButton value="budget">Budget</ToggleButton>
-                    <ToggleButton value="expenses">Expenses</ToggleButton>
-                </ToggleButtonGroup>
-                <BudgetGraph />
-            </Box>
-        </BudgetModeContext.Provider>
-    )
+  return (
+    <BudgetModeContext.Provider value={mode}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '100dvw',
+        }}
+      >
+        <ToggleButtonGroup
+          value={mode}
+          onChange={(_, value) => setMode(value)}
+          exclusive
+          size="small"
+          sx={{ backgroundColor: 'primary.main' }}
+        >
+          <ToggleButton value="budget">Budget</ToggleButton>
+          <ToggleButton value="expenses">Expenses</ToggleButton>
+        </ToggleButtonGroup>
+        <BudgetGraph />
+      </Box>
+    </BudgetModeContext.Provider>
+  )
 }
