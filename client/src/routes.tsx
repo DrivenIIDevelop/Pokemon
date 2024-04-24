@@ -3,5 +3,5 @@ import './index.css'
 
 /** The main page layout */
 export function Component() {
-    return <Outlet />
+  return <Outlet />
 }
