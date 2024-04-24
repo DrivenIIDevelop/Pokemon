@@ -29,7 +29,7 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
         <Button onClick={() => setExpanded(!expanded)} sx={{ minWidth: 0 }}>
           {expanded ? <ExpandLessIcon color="action" /> : <ExpandMoreIcon color="action" />}
         </Button>
-        <Box flex={1}>
+        <Box flex={1} my={0.75}>
           <Typography>{category.name}</Typography>
           <LinearProgress
             variant="determinate"
