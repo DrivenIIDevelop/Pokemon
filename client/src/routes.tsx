@@ -4,15 +4,15 @@ import './index.css'
 
 /** The main page layout */
 export function Component() {
-    return (
-        <Box
-            sx={{
-                minHeight: '100vh',
-                minWidth: '100vw',
-                backgroundColor: 'background.default',
-            }}
-        >
-            <Outlet />
-        </Box>
-    )
+  return (
+    <Box
+      sx={{
+        minHeight: '100vh',
+        minWidth: '100vw',
+        backgroundColor: 'background.default',
+      }}
+    >
+      <Outlet />
+    </Box>
+  )
 }
