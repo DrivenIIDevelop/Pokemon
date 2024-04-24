@@ -4,6 +4,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
 import BudgetModeContext, { BudgetMode } from '../../contexts/BudgetModeContext'
 import BudgetGraph from '../../components/BudgetGraph'
+import BudgetCategory from '../../components/BudgetCategory'
 
 export function Component() {
   const [mode, setMode] = useState<BudgetMode>('budget')
@@ -29,6 +30,7 @@ export function Component() {
           <ToggleButton value="expenses">Expenses</ToggleButton>
         </ToggleButtonGroup>
         <BudgetGraph />
+        <BudgetCategory category={{}} />
       </Box>
     </BudgetModeContext.Provider>
   )
