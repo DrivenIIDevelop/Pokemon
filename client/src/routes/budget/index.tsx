@@ -1,24 +1,29 @@
 import { useState } from 'react'
-import Box from '@mui/material/Box'
+import { LoaderFunction, useLoaderData } from 'react-router-dom'
+import Container from '@mui/material/Box'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
 import BudgetModeContext, { BudgetMode } from '../../contexts/BudgetModeContext'
 import BudgetGraph from '../../components/budget/BudgetGraph'
-import BudgetCategory from '../../components/budget/BudgetCategory'
+import BudgetCategories from '../../components/budget/BudgetCategories'
+import categories from '../../../demo-data/categories.json'
+
+interface LoadedData {
+  categories: Category[]
+}
+
+export const loader: LoaderFunction = async (): Promise<LoadedData> => {
+  // TODO: Get data from API
+  return { categories }
+}
 
 export function Component() {
+  const { categories } = useLoaderData() as LoadedData
   const [mode, setMode] = useState<BudgetMode>('budget')
 
   return (
     <BudgetModeContext.Provider value={mode}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100dvw',
-        }}
-      >
+      <Container maxWidth="md" margin="0 auto">
         <ToggleButtonGroup
           value={mode}
           onChange={(_, value) => setMode(value)}
@@ -30,8 +35,8 @@ export function Component() {
           <ToggleButton value="expenses">Expenses</ToggleButton>
         </ToggleButtonGroup>
         <BudgetGraph />
-        <BudgetCategory category={{}} />
-      </Box>
+        <BudgetCategories categories={categories} />
+      </Container>
     </BudgetModeContext.Provider>
   )
 }
