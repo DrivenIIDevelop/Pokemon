@@ -3,8 +3,8 @@ import Box from '@mui/material/Box'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
 import BudgetModeContext, { BudgetMode } from '../../contexts/BudgetModeContext'
-import BudgetGraph from '../../components/BudgetGraph'
-import BudgetCategory from '../../components/BudgetCategory'
+import BudgetGraph from '../../components/budget/BudgetGraph'
+import BudgetCategory from '../../components/budget/BudgetCategory'
 
 export function Component() {
   const [mode, setMode] = useState<BudgetMode>('budget')

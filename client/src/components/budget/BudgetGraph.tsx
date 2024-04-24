@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import BudgetModeContext from '../contexts/BudgetModeContext'
+import BudgetModeContext from '../../contexts/BudgetModeContext'
 
 export default function BudgetGraph() {
   const mode = useContext(BudgetModeContext)
