@@ -14,7 +14,7 @@ interface LoadedData {
   categories: Category[]
 }
 
-export const loader: LoaderFunction = async (): Promise<LoadedData> => {
+export const loader: LoaderFunction = (): LoadedData => {
   // TODO: Get data from API
   return { categories }
 }
@@ -30,7 +30,7 @@ export function Component() {
           <Box display="flex" justifyContent="center">
             <ToggleButtonGroup
               value={mode}
-              onChange={(_, value) => setMode(value)}
+              onChange={(_, value: BudgetMode) => setMode(value)}
               exclusive
               size="small"
               sx={{ backgroundColor: 'primary.main' }}
