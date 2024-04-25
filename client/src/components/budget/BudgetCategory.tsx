@@ -18,7 +18,7 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
       sx={{
         borderRadius: 2,
         boxShadow: 1,
-        bgcolor: 'primary.main',
+        bgcolor: 'background.200',
         '&:before': {
           display: 'none',
         },
@@ -34,7 +34,7 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
           <LinearProgress
             variant="determinate"
             value={budgetRatio < 1 ? budgetRatio * 100 : 100}
-            color={budgetRatio < 1 ? 'secondary' : 'error'}
+            color={budgetRatio < 1 ? 'primary' : 'error'}
             sx={{ marginRight: '1.5rem' }}
           />
         </Box>
