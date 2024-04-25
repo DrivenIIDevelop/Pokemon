@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import Stack from '@mui/material/Stack'
+import Accordion from '@mui/material/Accordion'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import AccordionDetails from '@mui/material/AccordionDetails'
 import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
-import Button from '@mui/material/Button'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import Typography from '@mui/material/Typography'
 
 interface BudgetCategoryProps {
@@ -12,24 +11,25 @@ interface BudgetCategoryProps {
 }
 
 export default function BudgetCategory({ category }: BudgetCategoryProps) {
-  const [expanded, setExpanded] = useState(true)
   const budgetRatio = category.total / category.limit
 
   return (
-    <Stack>
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyItems="center"
-        gap="1rem"
-        bgcolor="primary.main"
-        borderRadius=".5rem"
-        boxShadow={1}
+    <Accordion
+      sx={{
+        borderRadius: 2,
+        boxShadow: 1,
+        bgcolor: 'primary.main',
+        '&:before': {
+          display: 'none',
+        },
+      }}
+      disableGutters
+    >
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        sx={{ flexDirection: 'row-reverse', alignItems: 'center', gap: 1 }}
       >
-        <Button onClick={() => setExpanded(!expanded)} sx={{ minWidth: 0 }}>
-          {expanded ? <ExpandLessIcon color="action" /> : <ExpandMoreIcon color="action" />}
-        </Button>
-        <Box flex={1} my={0.75}>
+        <Box flex={1}>
           <Typography>{category.name}</Typography>
           <LinearProgress
             variant="determinate"
@@ -38,8 +38,9 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
             sx={{ marginRight: '1.5rem' }}
           />
         </Box>
-        <Typography marginRight=".75rem">${category.limit}</Typography>
-      </Box>
-    </Stack>
+        <Typography>${category.limit}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>Sub-Categories</AccordionDetails>
+    </Accordion>
   )
 }
