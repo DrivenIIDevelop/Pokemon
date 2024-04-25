@@ -1,0 +1,23 @@
+[
+  {
+    "id": "458aa6c9-bd54-4a72-b8ca-15a5f30780bc",
+    "name": "Needs",
+    "limit": 340,
+    "subcategories": [],
+    "total": 410
+  },
+  {
+    "id": "20da2359-a92b-4867-96ce-c2aee0d03c9e",
+    "name": "Wants",
+    "limit": 300,
+    "subcategories": [],
+    "total": 100
+  },
+  {
+    "id": "e5e59a7a-7d60-4693-a347-02fb6bb12894",
+    "name": "Bills",
+    "limit": 600,
+    "subcategories": [],
+    "total": 450
+  }
+]
