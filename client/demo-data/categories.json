@@ -2,22 +2,73 @@
   {
     "id": "458aa6c9-bd54-4a72-b8ca-15a5f30780bc",
     "name": "Needs",
-    "limit": 340,
-    "subcategories": [],
-    "total": 410
+    "limit": 640,
+    "total": 280,
+    "subcategories": [
+      {
+        "id": "57160b03-b4df-45fb-87b3-426a042e639c",
+        "name": "Food",
+        "limit": 300,
+        "total": 110
+      },
+      {
+        "id": "0d735487-2668-4d5e-a835-79182dc42460",
+        "name": "Pets",
+        "limit": 200,
+        "total": 140
+      },
+      {
+        "id": "721eac19-b773-4f5c-8214-b2e0ff8ff928",
+        "name": "Transportation",
+        "limit": 140,
+        "total": 30
+      }
+    ]
   },
   {
     "id": "20da2359-a92b-4867-96ce-c2aee0d03c9e",
     "name": "Wants",
     "limit": 300,
-    "subcategories": [],
-    "total": 100
+    "total": 155,
+    "subcategories": [
+      {
+        "id": "fbeb20cb-bb90-4fb2-9dca-abb8e85f94c7",
+        "name": "Entertainment",
+        "limit": 100,
+        "total": 80
+      },
+      {
+        "id": "85580d51-2a12-42ba-973c-7bab782b9e56",
+        "name": "Restaurants",
+        "limit": 125,
+        "total": 60
+      },
+      {
+        "id": "f7ca8aa4-f12b-4d5c-b80c-9bca0d411a92",
+        "name": "Alcohol",
+        "limit": 75,
+        "total": 15
+      }
+    ]
   },
   {
     "id": "e5e59a7a-7d60-4693-a347-02fb6bb12894",
     "name": "Bills",
     "limit": 600,
-    "subcategories": [],
-    "total": 450
+    "total": 450,
+    "subcategories": [
+      {
+        "id": "fff74f44-f61b-42b1-9f99-3c4b5400d122",
+        "name": "Rent",
+        "limit": 450,
+        "total": 480
+      },
+      {
+        "id": "ad15508c-05d9-45ed-8c4a-76ef2fa7b53c",
+        "name": "Utilities",
+        "limit": 150,
+        "total": 120
+      }
+    ]
   }
 ]
