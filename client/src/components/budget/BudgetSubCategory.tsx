@@ -5,24 +5,30 @@ import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
-import BudgetSubCategory from './BudgetSubCategory'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
-interface BudgetCategoryProps {
-  category: Category
+interface BudgetSubCategoryProps {
+  subcategory: Subcategory
 }
 
-export default function BudgetCategory({ category }: BudgetCategoryProps) {
-  const budgetRatio = category.total / category.limit
+export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProps) {
+  const budgetRatio = subcategory.total / subcategory.limit
 
   return (
     <Accordion
+      variant="outlined"
       sx={{
-        bgcolor: 'background.200',
+        bgcolor: 'background.300',
+        '&:before': { display: 'none' },
+        mt: 1,
+        ':first-child': { mt: 0 },
       }}
+      disableGutters
     >
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ '& .MuiAccordionSummary-content': { my: 1 } }}>
+        <FiberManualRecordIcon />
         <Box flex={1}>
-          <Typography>{category.name}</Typography>
+          <Typography>{subcategory.name}</Typography>
           <LinearProgress
             variant="determinate"
             value={budgetRatio < 1 ? budgetRatio * 100 : 100}
@@ -30,13 +36,9 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
             sx={{ marginRight: '1.5rem' }}
           />
         </Box>
-        <Typography>${category.limit}</Typography>
+        <Typography>${subcategory.limit}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
-        {category.subcategories.map(subcategory => (
-          <BudgetSubCategory subcategory={subcategory} key={subcategory.id} />
-        ))}
-      </AccordionDetails>
+      <AccordionDetails>Expenses</AccordionDetails>
     </Accordion>
   )
 }
