@@ -1,7 +1,10 @@
+import ExpenseItem from './ExpenseItem'
+
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
@@ -38,7 +41,13 @@ export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProp
         </Box>
         <Typography>${subcategory.limit}</Typography>
       </AccordionSummary>
-      <AccordionDetails>Expenses</AccordionDetails>
+      <AccordionDetails>
+        <Stack spacing={1} px={0}>
+          {subcategory.expenses.map(expense => (
+            <ExpenseItem expense={expense} key={expense.id} />
+          ))}
+        </Stack>
+      </AccordionDetails>
     </Accordion>
   )
 }
