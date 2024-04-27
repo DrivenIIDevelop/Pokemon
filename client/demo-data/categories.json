@@ -9,19 +9,47 @@
         "id": "57160b03-b4df-45fb-87b3-426a042e639c",
         "name": "Food",
         "limit": 300,
-        "total": 110
+        "total": 110,
+        "expenses": []
       },
       {
         "id": "0d735487-2668-4d5e-a835-79182dc42460",
         "name": "Pets",
         "limit": 200,
-        "total": 140
+        "total": 140,
+        "expenses": [
+          {
+            "id": "688f9b14-dec8-447c-985f-ff9541bb541a",
+            "title": "Dog Walker",
+            "amount": 20,
+            "description": "someone needs to walk the demons",
+            "frequency": "weekly",
+            "date": "2024-04-02T00:00:00.000Z"
+          },
+          {
+            "id": "b11dcef6-f1c3-4127-a2d3-686acb704e62",
+            "title": "Grooming",
+            "amount": 20,
+            "description": "Handsome boy",
+            "frequency": "monthly",
+            "date": "2024-04-02T00:00:00.000Z"
+          },
+          {
+            "id": "b11dcef6-f1c3-4127-a2d3-686acb704e62",
+            "title": "Dog Food",
+            "amount": 20,
+            "description": "Food for the fluff ball",
+            "frequency": "monthly",
+            "date": "2024-04-02T00:00:00.000Z"
+          }
+        ]
       },
       {
         "id": "721eac19-b773-4f5c-8214-b2e0ff8ff928",
         "name": "Transportation",
         "limit": 140,
-        "total": 30
+        "total": 30,
+        "expenses": []
       }
     ]
   },
@@ -35,19 +63,39 @@
         "id": "fbeb20cb-bb90-4fb2-9dca-abb8e85f94c7",
         "name": "Entertainment",
         "limit": 100,
-        "total": 80
+        "total": 80,
+        "expenses": [
+          {
+            "id": "1414f4d8-38eb-4d94-aaf8-75d2eaa5c298",
+            "title": "Disney Plus",
+            "amount": 170,
+            "description": "Disney streaming services",
+            "frequency": "annually",
+            "date": "2024-04-01T00:00:00.000Z"
+          },
+          {
+            "id": "00b07f03-75f5-4c73-a93a-fb501b65fd8b",
+            "title": "Netflix subscription",
+            "amount": 15,
+            "description": "Monthly subscription",
+            "frequency": "monthly",
+            "date": "2024-04-15T00:00:00.000Z"
+          }
+        ]
       },
       {
         "id": "85580d51-2a12-42ba-973c-7bab782b9e56",
         "name": "Restaurants",
         "limit": 125,
-        "total": 60
+        "total": 60,
+        "expenses": []
       },
       {
         "id": "f7ca8aa4-f12b-4d5c-b80c-9bca0d411a92",
         "name": "Alcohol",
         "limit": 75,
-        "total": 15
+        "total": 15,
+        "expenses": []
       }
     ]
   },
@@ -61,13 +109,25 @@
         "id": "fff74f44-f61b-42b1-9f99-3c4b5400d122",
         "name": "Rent",
         "limit": 450,
-        "total": 480
-      },
-      {
-        "id": "ad15508c-05d9-45ed-8c4a-76ef2fa7b53c",
-        "name": "Utilities",
-        "limit": 150,
-        "total": 120
+        "total": 480,
+        "expenses": [
+          {
+            "id": "cd62f71d-a9f0-45d6-aa84-bd6ecabbf003",
+            "title": "Rent",
+            "amount": 2000,
+            "description": "Monthly apartment rent",
+            "frequency": "monthly",
+            "date": "2024-04-01T00:00:00.000Z"
+          },
+          {
+            "id": "a128c226-1bf3-4726-b497-0c53a0dc23f8",
+            "title": "Electric Bill",
+            "amount": 80,
+            "description": "Electricity",
+            "frequency": "monthly",
+            "date": "2024-04-11T00:00:00.000Z"
+          }
+        ]
       }
     ]
   }
