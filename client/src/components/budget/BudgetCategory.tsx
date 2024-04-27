@@ -1,7 +1,8 @@
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
-import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
@@ -33,9 +34,11 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
         <Typography>${category.limit}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        {category.subcategories.map(subcategory => (
-          <BudgetSubCategory subcategory={subcategory} key={subcategory.id} />
-        ))}
+        <Stack spacing={1}>
+          {category.subcategories.map(subcategory => (
+            <BudgetSubCategory subcategory={subcategory} key={subcategory.id} />
+          ))}
+        </Stack>
       </AccordionDetails>
     </Accordion>
   )

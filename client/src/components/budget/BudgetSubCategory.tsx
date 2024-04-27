@@ -23,8 +23,6 @@ export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProp
       sx={{
         bgcolor: 'background.300',
         '&:before': { display: 'none' },
-        mt: 1,
-        ':first-child': { mt: 0 },
       }}
       disableGutters
     >
@@ -42,7 +40,7 @@ export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProp
         <Typography>${subcategory.limit}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Stack spacing={1} px={0}>
+        <Stack spacing={1}>
           {subcategory.expenses.map(expense => (
             <ExpenseItem expense={expense} key={expense.id} />
           ))}
