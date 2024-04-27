@@ -9,3 +9,7 @@ The back-end server of this application is handled particulary Express.js a web 
 4. Create a `.env` file to add a MongoDB connection as there are created functions to ensure the anominity 
 5. Once access has been grated in MongoDB connect and add the created database cluster to `.env` as `MongoDB_URI`
 6. Run the server through `node server.mjs`
+
+# creating an access token 
+1. in terminal run `node`
+2. type in `require('crpto').randomBytes(64).toString('hex')`
