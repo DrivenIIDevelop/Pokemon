@@ -27,6 +27,42 @@ const theme = responsiveFontSizes(
     typography: {
       fontFamily: '"Exo 2", sans-serif',
     },
+    components: {
+      MuiAccordion: {
+        defaultProps: {
+          disableGutters: true,
+        },
+        styleOverrides: {
+          root: {
+            '&:before': {
+              display: 'none',
+            },
+          },
+          rounded: {
+            borderRadius: 8,
+            ':first-of-type': {
+              borderRadius: 8,
+            },
+            ':last-of-type': {
+              borderRadius: 8,
+            },
+          },
+        },
+      },
+      MuiAccordionSummary: {
+        styleOverrides: {
+          root: {
+            flexDirection: 'row-reverse',
+            alignItems: 'center',
+            gap: 8,
+            minHeight: 0,
+          },
+          content: {
+            alignItems: 'center',
+          },
+        },
+      },
+    },
   }),
 )
 

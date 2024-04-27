@@ -33,7 +33,7 @@ export function Component() {
               onChange={(_, value: BudgetMode) => setMode(value)}
               exclusive
               size="small"
-              sx={{ backgroundColor: 'primary.main' }}
+              // sx={{}}
             >
               <ToggleButton value="budget">Budget</ToggleButton>
               <ToggleButton value="expenses">Expenses</ToggleButton>
