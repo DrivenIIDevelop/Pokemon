@@ -6,6 +6,9 @@
     "client",
     "server"
   ],
+  "scripts": {
+    "format": "npx prettier -w ."
+  },
   "devDependencies": {
     "@types/node": "^20.12.7",
     "prettier": "^3.2.5",
