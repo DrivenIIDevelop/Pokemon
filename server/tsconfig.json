@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "esnext",
+    "target": "esnext",
+    "module": "commonjs",
     "types": ["node"],
 
-    "outDir": "./dist",
+    "outDir": "dist",
+    "sourceMap": true,
+    "importsNotUsedAsValues": "remove",
 
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
