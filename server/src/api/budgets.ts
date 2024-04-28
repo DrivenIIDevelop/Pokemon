@@ -1,28 +1,32 @@
-import { mongooseConnect } from '../lib/mongoose'
+import { Router } from 'express'
 import { Budget } from '../models/Budget'
-import { Request, Response } from 'express'
 
-export default async function handle(req: Request, res: Response): Promise<void> {
-  const { method } = req
-  await mongooseConnect()
+export const budgetRouter = Router()
 
-  if (method === 'GET') {
-    if (req.query?.id) {
-      res.json(await Budget.findOne({ _id: req.query.id }))
-    } else {
-      res.json(await Budget.find())
-    }
-  } else if (method === 'POST') {
-    const { budgetName, goalAmount, description, goalDate, status } = req.body
-    const budgetDoc = await Budget.create({ budgetName, goalAmount, description, goalDate, status })
-    res.json(budgetDoc)
-  } else if (method === 'PUT') {
-    await Budget.updateOne({ _id: req.query.id }, req.body)
-    res.json(true)
-  } else if (method === 'DELETE') {
-    if (req.query?.id) {
-      await Budget.deleteOne({ _id: req.query.id })
-      res.json(true)
-    }
-  }
-}
+budgetRouter.get('/', async (req, res) => {
+  const budgets = await Budget.find().populate(['categories']).exec()
+  res.json(budgets)
+})
+
+budgetRouter.get('/:id', async (req, res) => {
+  const budget = await Budget.findOne({ _id: req.params.id }).populate(['categories']).exec()
+  res.json(budget)
+})
+
+budgetRouter.post('/:id', async (req, res) => {
+  const { budgetName, goalAmount, description, goalDate, status } = req.body
+  const budgetDoc = await Budget.create({ budgetName, goalAmount, description, goalDate, status })
+  res.json(budgetDoc)
+})
+
+budgetRouter.put('/:id', async (req, res) => {
+  const result = await Budget.updateOne({ _id: req.params.id }, req.body)
+  res.json(result.acknowledged)
+})
+
+budgetRouter.delete('/:id', async (req, res) => {
+  const result = await Budget.deleteOne({ _id: req.params.id })
+  res.json(result.acknowledged)
+})
+
+export default budgetRouter
