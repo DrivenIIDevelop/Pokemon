@@ -1,10 +1,9 @@
-import { Schema, model, models, Document } from 'mongoose'
-import { Types } from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
 const CategorySchema = new Schema({
   name: { type: String, required: true },
-  parent: { type: Types.ObjectId, ref: 'Category' },
-  properties: [{ type: Object }],
+  budget: { type: Schema.Types.ObjectId, ref: 'Budget' },
+  expenses: [{ type: Schema.Types.ObjectId, ref: 'Expense' }],
 })
 
 export const Category = models.Category || model('Category', CategorySchema)
