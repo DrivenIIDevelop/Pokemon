@@ -1,16 +1,21 @@
-import mongoose from "mongoose";
-import { Budget } from "../models/Budget.mjs";
+import mongoose from 'mongoose';
+import { Budget } from '../models/Budget';
+
+interface TestBudget {
+  budgetName: string;
+  goalAmount: number;
+  description: string;
+  goalDate: Date;
+  status: 'completed' | 'in progress' | 'canceled';
+}
 
 async function insertBudgetIncomes() {
-    try {
-        // Connect to MongoDB
-        await mongoose.connect('mongodb+srv://marvinxia09:FKm0XWSFeaYTI8ec@cluster0.vkbcnyo.mongodb.net/', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+  try {
+    // Connect to MongoDB
+    await mongoose.connect('mongodb+srv://your_connection_string_here');
 
     // Test budget data
-    const testBudget = [
+    const testBudgets: TestBudget[] = [
         { 
             budgetName: "Tokyo plane ticket", 
             goalAmount: 1000, 
@@ -49,16 +54,16 @@ async function insertBudgetIncomes() {
     ];
 
     // Insert each test budget into the database
-    for (const budget of testBudget) {
-        await Budget.create(budget);
+    for (const budget of testBudgets) {
+      await Budget.create(budget);
     }
 
     console.log("Test budget inserted successfully.");
     process.exit(0); // Exit script after successful insertion
-    } catch (error) {
+  } catch (error) {
     console.error("Error inserting test budget:", error);
     process.exit(1); // Exit script with error code
-    }
+  }
 }
 
 // Run the function to insert test data
