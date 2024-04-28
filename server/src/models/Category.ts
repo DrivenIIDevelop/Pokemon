@@ -2,6 +2,7 @@ import { Schema, model, models } from 'mongoose'
 
 const CategorySchema = new Schema({
   name: { type: String, required: true },
+  limit: { type: Number, required: true },
   budget: { type: Schema.Types.ObjectId, ref: 'Budget' },
   expenses: [{ type: Schema.Types.ObjectId, ref: 'Expense' }],
 })
