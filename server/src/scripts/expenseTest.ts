@@ -1,16 +1,21 @@
-import mongoose from "mongoose";
-import { Expense } from "../models/Expense.mjs";
+import mongoose from 'mongoose';
+import { Expense } from '../models/Expense';
+
+interface TestExpense {
+  title: string;
+  amount: number;
+  description: string;
+  frequency: 'weekly' | 'bi-weekly' | 'monthly' | 'quarterly' | 'annually';
+  date: Date;
+}
 
 async function insertTestExpense() {
-    try {
-        // Connect to MongoDB
-        await mongoose.connect('mongodb+srv://marvinxia09:FKm0XWSFeaYTI8ec@cluster0.vkbcnyo.mongodb.net/', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+  try {
+    // Connect to MongoDB
+    await mongoose.connect('mongodb+srv://your_connection_string_here');
 
     // Test expense data
-    const testExpenses = [
+    const testExpenses: TestExpense[] = [
         { 
             title: "Netflix subscription", 
             amount: 15, description: "Monthly subscription",
@@ -45,15 +50,15 @@ async function insertTestExpense() {
 
     // Insert each test expense into the database
     for (const expense of testExpenses) {
-        await Expense.create(expense);
+      await Expense.create(expense);
     }
 
     console.log("Test expense inserted successfully.");
     process.exit(0); // Exit script after successful insertion
-    } catch (error) {
+  } catch (error) {
     console.error("Error inserting test expense:", error);
     process.exit(1); // Exit script with error code
-    }
+  }
 }
 
 // Run the function to insert test data

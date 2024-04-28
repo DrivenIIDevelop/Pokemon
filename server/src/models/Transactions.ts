@@ -1,5 +1,4 @@
-import pkg from 'mongoose'; 
-const {Schema, model, models} = pkg;
+import { Schema, model, models } from 'mongoose';
 
 const TransactionSchema = new Schema({
     title: {type: String, req:true},
