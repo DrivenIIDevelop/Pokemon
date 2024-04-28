@@ -4,12 +4,16 @@ import { Budget } from '../models/Budget'
 export const budgetRouter = Router()
 
 budgetRouter.get('/', async (req, res) => {
-  const budgets = await Budget.find().populate(['categories']).exec()
+  const budgets = await Budget.find()
+    .populate({ path: 'categories', populate: { path: 'expenses' } })
+    .exec()
   res.json(budgets)
 })
 
 budgetRouter.get('/:id', async (req, res) => {
-  const budget = await Budget.findOne({ _id: req.params.id }).populate(['categories']).exec()
+  const budget = await Budget.findOne({ _id: req.params.id })
+    .populate({ path: 'categories', populate: { path: 'expenses' } })
+    .exec()
   res.json(budget)
 })
 
