@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "prestart": "npx tsc",
-    "start": "node dist/server.js"
+    "start": "node ./dist/index.js"
   },
   "license": "ISC",
   "dependencies": {
