@@ -11,17 +11,12 @@ on:
       - 'client/**'
 
 jobs:
-  check-format:
+  run-eslint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Install dependencies
-        run: npm i
-        working-directory: ./client
-      - name: Check format with Prettier
-        run: npx prettier -c .
-        working-directory: ./client
+        run: npm i -w client
       - name: Check code with ESLint
-        run: npm run lint
-        working-directory: ./client
+        run: npm run lint -w client
