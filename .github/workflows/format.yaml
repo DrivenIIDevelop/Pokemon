@@ -1,4 +1,4 @@
-name: Lint Frontend
+name: Format Code
 
 on:
   push:
@@ -18,3 +18,4 @@ jobs:
         with:
           dry: True
           prettier_version: '^2.2.5'
+          prettier_options: --check .

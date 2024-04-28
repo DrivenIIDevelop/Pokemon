@@ -11,7 +11,7 @@ on:
       - 'client/**'
 
 jobs:
-  check-format:
+  run-eslint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
