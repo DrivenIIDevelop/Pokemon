@@ -1,7 +1,0 @@
-# Local Environmental Varables
-*.local
-venv
-.venv
-.env
-__pycache__
-node_modules

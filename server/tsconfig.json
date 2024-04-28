@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "types": ["node"],
+
+    "outDir": "./dist",
+
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+
+    "strict": true
+  },
+  "include": ["src", "../types.d.ts"]
+}
