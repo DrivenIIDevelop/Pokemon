@@ -23,11 +23,3 @@ declare interface Expense {
   frequency?: 'weekly' | 'bi-weekly' | 'monthly' | 'quarterly' | 'annually'
   date: string
 }
-
-// cannot use in component even though type info is declared
-declare interface HeroImage {
-  imageUrl: string
-  imageAlt: string
-  easing?: string
-  duration?: number
-}
