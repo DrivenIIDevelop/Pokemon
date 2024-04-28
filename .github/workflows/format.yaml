@@ -3,12 +3,8 @@ name: Lint Frontend
 on:
   push:
     branches: ['master']
-    paths:
-      - 'client/**'
   pull_request:
     branches: ['master']
-    paths:
-      - 'client/**'
 
 jobs:
   check-format:
@@ -16,7 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm i -w client
-      - name: Check code with ESLint
-        run: npm run lint -w client
+
+      - name: Check format with Prettier
+        uses: creyD/prettier_action@v4.3
+        with:
+          dry: True
+          prettier_version: '^2.2.5'
