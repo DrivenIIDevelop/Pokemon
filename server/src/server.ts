@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
+import dotenvFlow from 'dotenv-flow'
 import express, { Request, Response, NextFunction } from 'express'
 import { mongooseConnect } from './lib/mongoose'
 import jwt from 'jsonwebtoken'
 
-dotenv.config()
+dotenvFlow.config()
 
 const app = express()
 const PORT = process.env.PORT || '3000'
@@ -57,9 +57,6 @@ function authenticateToken(req: Request, res: Response, next: NextFunction) {
 mongooseConnect()
   .then(() => {
     console.log('MongoDB connected successfully')
-    app.get('/', (req: Request, res: Response) => {
-      res.send('Hello Backend Devs!')
-    })
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
     })
