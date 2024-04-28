@@ -1,5 +1,5 @@
 import { mongooseConnect } from '../lib/mongoose'
-import { Transaction } from '../models/Transactions'
+import { Transaction } from '../models/Transaction'
 import { Request, Response } from 'express'
 
 export default async function handle(req: Request, res: Response): Promise<void> {

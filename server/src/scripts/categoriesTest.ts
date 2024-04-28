@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { Category } from '../models/Categories'
+import { Category } from '../models/Category'
 
 interface TestCategory {
   name: string

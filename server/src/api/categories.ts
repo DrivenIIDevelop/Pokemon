@@ -1,5 +1,5 @@
 import { mongooseConnect } from '../lib/mongoose'
-import { Category } from '../models/Categories'
+import { Category } from '../models/Category'
 import { Request, Response } from 'express'
 
 export default async function handle(req: Request, res: Response): Promise<void> {
