@@ -1,8 +1,8 @@
 {
-    "recommendations": [
-        "seatonjiang.gitmoji-vscode",
-        "esbenp.prettier-vscode",
-        "csstools.postcss",
-        "bradlc.vscode-tailwindcss"
-    ]
+  "recommendations": [
+    "seatonjiang.gitmoji-vscode",
+    "esbenp.prettier-vscode",
+    "csstools.postcss",
+    "bradlc.vscode-tailwindcss"
+  ]
 }
