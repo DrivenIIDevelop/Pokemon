@@ -7,7 +7,9 @@
     "server"
   ],
   "scripts": {
-    "format": "npx prettier -w ."
+    "format": "npx prettier -w .",
+    "back": "npm run start -w server",
+    "front": "npm run dev -w client"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

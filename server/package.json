@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js",
-    "devStart2": "nodemon server2.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "prestart": "npx tsc",
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
