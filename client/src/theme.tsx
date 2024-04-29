@@ -26,6 +26,12 @@ const theme = responsiveFontSizes(
     },
     typography: {
       fontFamily: '"Exo 2", sans-serif',
+      h1: {
+        fontSize: 36,
+      },
+      h2: {
+        fontSize: 20,
+      },
     },
     components: {
       MuiAccordion: {
