@@ -4,21 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js",
-    "devStart2": "nodemon server2.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "prestart": "npx tsc",
+    "start": "node ./dist/index.js"
   },
-  "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv-flow": "^4.1.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.2",
     "plaid": "^23.0.0"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
     "nodemon": "^3.1.0"
   }
 }
