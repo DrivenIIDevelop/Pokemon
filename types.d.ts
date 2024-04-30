@@ -1,25 +1,23 @@
 declare interface Budget {
-  id: string
+  _id: string
   name: string
   limit: number
-  total: number
   categories: Category[]
 }
 
 declare interface Category {
-  id: string
+  _id: string
   name: string
   limit: number
-  total: number
   icon?: string
   expenses: Expense[]
 }
 
 declare interface Expense {
-  id: string
+  _id: string
   title: string
-  amount: 15
+  amount: number
   description?: string
   frequency?: 'weekly' | 'bi-weekly' | 'monthly' | 'quarterly' | 'annually'
-  date: string
+  date: Date
 }

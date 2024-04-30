@@ -1,14 +1,22 @@
-import { Schema, model, models } from 'mongoose'
+import { Schema, Types, model } from 'mongoose'
+import type { ICategory } from '.'
 
-const ExpenseSchema = new Schema({
+export interface IExpense extends Omit<Expense, '_id' | 'date'> {
+  _id: Types.ObjectId
+  date: Date
+  category: ICategory['_id']
+}
+
+const ExpenseSchema = new Schema<IExpense>({
   title: { type: String, req: true },
   amount: { type: Number, req: true },
-  desciption: { type: String },
+  description: { type: String },
   frequency: {
     type: String,
     enum: ['weekly', 'bi-weekly', 'monthly', 'quarterly', 'annually'],
   },
-  date: { type: Date, default: Date.now },
+  date: { type: Date, required: true },
+  category: { type: Schema.Types.ObjectId, ref: 'Category' },
 })
 
-export const Expense = models.Expense || model('Expense', ExpenseSchema)
+export const Expense = model('Expense', ExpenseSchema)
