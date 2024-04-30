@@ -11,11 +11,13 @@ import Typography from '@mui/material/Typography'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
 interface CategoryProps {
-  category: Category
+  category: Category & { expenses: Expense[] }
 }
 
 export default function Category({ category }: CategoryProps) {
-  const budgetRatio = category.total / category.limit
+  let total = 0
+  category.expenses.forEach(expense => (total += expense.amount))
+  const budgetRatio = total / category.limit
 
   return (
     <Accordion
@@ -42,7 +44,7 @@ export default function Category({ category }: CategoryProps) {
       <AccordionDetails>
         <Stack spacing={1}>
           {category.expenses.map(expense => (
-            <Expense expense={expense} key={expense.id} />
+            <Expense expense={expense} key={expense._id} />
           ))}
         </Stack>
       </AccordionDetails>

@@ -11,11 +11,12 @@ import BudgetComponenet from '../../components/budget/Budget'
 import budgets from '../../../demo-data/budgets.json'
 
 interface LoadedData {
-  budgets: Budget[]
+  budgets: (Budget & { categories: (Category & { expenses: Expense[] })[] })[]
 }
 
 export const loader: LoaderFunction = (): LoadedData => {
   // TODO: Get data from API
+  // @ts-expect-error Types need to be updated
   return { budgets } as LoadedData
 }
 
@@ -36,7 +37,7 @@ export function Component() {
           <BudgetGraph />
           <Stack spacing={1.5}>
             {budgets.map(budget => (
-              <BudgetComponenet budget={budget} key={budget.id} />
+              <BudgetComponenet budget={budget} key={budget._id} />
             ))}
           </Stack>
         </Stack>

@@ -4,7 +4,6 @@ import {} from '@mui/material/styles'
 
 interface ExpenseProps {
   expense: Expense
-  total: number
 }
 
 export default function Expense({ expense }: ExpenseProps) {

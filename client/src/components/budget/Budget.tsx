@@ -9,11 +9,13 @@ import Typography from '@mui/material/Typography'
 import Category from './Category'
 
 interface BudgetProps {
-  budget: Budget
+  budget: Budget & { categories: (Category & { expenses: Expense[] })[] }
 }
 
-export default function ({ budget }: BudgetProps) {
-  const budgetRatio = budget.total / budget.limit
+export default function Budget({ budget }: BudgetProps) {
+  let total = 0
+  budget.categories.forEach(cat => cat.expenses.forEach(expense => (total += expense.amount)))
+  const budgetRatio = total / budget.limit
 
   return (
     <Accordion
@@ -36,7 +38,7 @@ export default function ({ budget }: BudgetProps) {
       <AccordionDetails>
         <Stack spacing={1}>
           {budget.categories.map(category => (
-            <Category category={category} key={category.id} />
+            <Category category={category} key={category._id} />
           ))}
         </Stack>
       </AccordionDetails>
