@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
-import Header from './routes/header'
+import DrawerAppBar from './components/DrawerAppBar'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Suspense fallback={<div>Loading...</div>}>
         <RouterProvider router={router} />
       </Suspense>
-      <Header></Header>
+      <DrawerAppBar></DrawerAppBar>
     </ThemeProvider>
   </React.StrictMode>,
 )
