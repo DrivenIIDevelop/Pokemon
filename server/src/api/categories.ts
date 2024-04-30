@@ -1,26 +1,36 @@
-import { mongooseConnect } from '../lib/mongoose'
-import { Category } from '../models/Category'
-import { Request, Response } from 'express'
+import { Router } from 'express'
+import { Category } from '../models'
 
-export default async function handle(req: Request, res: Response): Promise<void> {
-  const { method } = req
-  await mongooseConnect()
+export const router = Router()
 
-  if (method === 'GET') {
-    res.json(await Category.find().populate('parent'))
-  } else if (method === 'POST') {
-    const { name, parentCategory, properties } = req.body
-    const parent = parentCategory === '' ? null : parentCategory
-    const categoryDoc = await Category.create({ name, parent: parent || undefined, properties })
-    res.json(categoryDoc)
-  } else if (method === 'PUT') {
-    const { name, parentCategory, properties, _id } = req.body
-    const parent = parentCategory === '' ? null : parentCategory
-    const categoryDoc = await Category.updateOne({ _id }, { name, parent: parent || undefined, properties })
-    res.json(categoryDoc)
-  } else if (method === 'DELETE') {
-    const { _id } = req.query
-    await Category.deleteOne({ _id })
-    res.json('ok')
-  }
-}
+export type GetResponseBody = Category
+
+router.get('/:id', async (req, res) => {
+  const budget = await Category.findOne({ _id: req.params.id }).exec()
+  res.json(budget)
+})
+
+export type CreateRequestBody = Omit<Category, '_id'>
+export type CreateResponseBody = Category
+
+router.post('/:id', async (req, res) => {
+  const { budget, name, limit, icon } = req.body
+  const budgetDoc = await Category.create({ budget, name, limit, icon })
+  res.json(budgetDoc)
+})
+
+export type UpdateRequestBody = Omit<Category, '_id' | 'budget'>
+export type UpdateResponseBody = Category
+
+router.put('/:id', async (req, res) => {
+  const { name, limit, icon } = req.body
+  const updatedCategory = await Category.findOneAndUpdate({ _id: req.params.id }, { name, limit, icon }).exec()
+  res.json(updatedCategory)
+})
+
+export type DeleteResponseBody = boolean
+
+router.delete('/:id', async (req, res) => {
+  const result = await Category.deleteOne({ _id: req.params.id }).exec()
+  res.json(result.acknowledged)
+})
