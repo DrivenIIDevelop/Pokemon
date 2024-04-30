@@ -1,16 +1,22 @@
 import { Schema, Types, model } from 'mongoose'
-import type { IBudget, IExpense } from '.'
+import type { IBudget } from '.'
 
-export interface ICategory extends Omit<Category, '_id' | 'expenses'> {
+export interface ICategory extends Omit<Category, '_id' | 'budget'> {
   _id: Types.ObjectId
-  expenses: IExpense['_id'][]
+  budget: IBudget['_id']
 }
 
 const CategorySchema = new Schema<ICategory>({
   name: { type: String, required: true },
   limit: { type: Number, required: true },
   icon: { type: String },
-  expenses: [{ type: Schema.Types.ObjectId, ref: 'Expense' }],
+  budget: { type: Schema.Types.ObjectId, ref: 'Budget', required: true },
+})
+
+CategorySchema.virtual('expenses', {
+  ref: 'Expense',
+  localField: '_id',
+  foreignField: 'category',
 })
 
 export const Category = model('Category', CategorySchema)

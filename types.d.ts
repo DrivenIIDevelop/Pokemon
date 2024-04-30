@@ -2,22 +2,22 @@ declare interface Budget {
   _id: string
   name: string
   limit: number
-  categories: Category[]
 }
 
-declare interface Category {
+declare interface Category<Populate = false> {
   _id: string
   name: string
   limit: number
   icon?: string
-  expenses: Expense[]
+  budget?: Populate extends true ? Budget : string
 }
 
-declare interface Expense {
+declare interface Expense<Populate = false> {
   _id: string
   title: string
   amount: number
   description?: string
   frequency?: 'weekly' | 'bi-weekly' | 'monthly' | 'quarterly' | 'annually'
   date: Date
+  category?: Populate extends true ? Category : string
 }
