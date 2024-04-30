@@ -4,7 +4,6 @@ import type { ICategory } from '.'
 export interface IExpense extends Omit<Expense, '_id' | 'date'> {
   _id: Types.ObjectId
   date: Date
-  category: ICategory['_id']
 }
 
 const ExpenseSchema = new Schema<IExpense>({
@@ -16,7 +15,6 @@ const ExpenseSchema = new Schema<IExpense>({
     enum: ['weekly', 'bi-weekly', 'monthly', 'quarterly', 'annually'],
   },
   date: { type: Date, required: true },
-  category: { type: Schema.Types.ObjectId, ref: 'Category' },
 })
 
 export const Expense = model('Expense', ExpenseSchema)
