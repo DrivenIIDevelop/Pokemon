@@ -6,14 +6,14 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
-import BudgetSubCategory from './BudgetSubCategory'
+import Category from './Category'
 
-interface BudgetCategoryProps {
-  category: Category
+interface BudgetProps {
+  budget: Budget
 }
 
-export default function BudgetCategory({ category }: BudgetCategoryProps) {
-  const budgetRatio = category.total / category.limit
+export default function ({ budget }: BudgetProps) {
+  const budgetRatio = budget.total / budget.limit
 
   return (
     <Accordion
@@ -23,7 +23,7 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Box flex={1}>
-          <Typography>{category.name}</Typography>
+          <Typography>{budget.name}</Typography>
           <LinearProgress
             variant="determinate"
             value={budgetRatio < 1 ? budgetRatio * 100 : 100}
@@ -31,12 +31,12 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
             sx={{ marginRight: '1.5rem' }}
           />
         </Box>
-        <Typography>${category.limit}</Typography>
+        <Typography>${budget.limit}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Stack spacing={1}>
-          {category.subcategories.map(subcategory => (
-            <BudgetSubCategory subcategory={subcategory} key={subcategory.id} />
+          {budget.categories.map(category => (
+            <Category category={category} key={category.id} />
           ))}
         </Stack>
       </AccordionDetails>

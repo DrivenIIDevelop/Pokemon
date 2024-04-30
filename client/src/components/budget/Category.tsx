@@ -1,4 +1,4 @@
-import ExpenseItem from './ExpenseItem'
+import Expense from './Expense'
 
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
@@ -10,12 +10,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
-interface BudgetSubCategoryProps {
-  subcategory: Subcategory
+interface CategoryProps {
+  category: Category
 }
 
-export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProps) {
-  const budgetRatio = subcategory.total / subcategory.limit
+export default function Category({ category }: CategoryProps) {
+  const budgetRatio = category.total / category.limit
 
   return (
     <Accordion
@@ -29,7 +29,7 @@ export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProp
       <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ '& .MuiAccordionSummary-content': { my: 1 } }}>
         <FiberManualRecordIcon />
         <Box flex={1}>
-          <Typography>{subcategory.name}</Typography>
+          <Typography>{category.name}</Typography>
           <LinearProgress
             variant="determinate"
             value={budgetRatio < 1 ? budgetRatio * 100 : 100}
@@ -37,12 +37,12 @@ export default function BudgetSubCategory({ subcategory }: BudgetSubCategoryProp
             sx={{ marginRight: '1.5rem' }}
           />
         </Box>
-        <Typography>${subcategory.limit}</Typography>
+        <Typography>${category.limit}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Stack spacing={1}>
-          {subcategory.expenses.map(expense => (
-            <ExpenseItem expense={expense} key={expense.id} />
+          {category.expenses.map(expense => (
+            <Expense expense={expense} key={expense.id} />
           ))}
         </Stack>
       </AccordionDetails>

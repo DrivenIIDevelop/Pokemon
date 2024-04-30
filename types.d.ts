@@ -1,12 +1,12 @@
-declare interface Category {
+declare interface Budget {
   id: string
   name: string
   limit: number
   total: number
-  subcategories: Subcategory[]
+  categories: Category[]
 }
 
-declare interface Subcategory {
+declare interface Category {
   id: string
   name: string
   limit: number

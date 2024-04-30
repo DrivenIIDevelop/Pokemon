@@ -2,11 +2,12 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import {} from '@mui/material/styles'
 
-interface ExpenseItemProps {
+interface ExpenseProps {
   expense: Expense
+  total: number
 }
 
-export default function ExpenseItem({ expense }: ExpenseItemProps) {
+export default function Expense({ expense }: ExpenseProps) {
   const date = new Date(expense.date).toLocaleDateString()
 
   return (
