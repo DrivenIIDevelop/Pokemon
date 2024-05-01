@@ -25,6 +25,6 @@ declare interface Expense<PopulateParent = false> {
 declare interface PopulatedBudget extends Budget {
   categories: PopulatedCategory[]
 }
-declare interface PopulatedCategory extends Populate {
+declare interface PopulatedCategory extends Category {
   expenses: Expense[]
 }
