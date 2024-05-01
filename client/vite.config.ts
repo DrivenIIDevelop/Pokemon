@@ -2,7 +2,6 @@ import { defineConfig, loadEnv } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react-swc'
 import RemixRouter from 'vite-plugin-remix-router'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -10,7 +9,12 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, envDir, '')
   return {
     envDir,
-    plugins: [react(), RemixRouter(), tsconfigPaths()],
+    resolve: {
+      alias: {
+        '@server/api/': resolve(__dirname, '../server/src/api/'),
+      },
+    },
+    plugins: [react(), RemixRouter()],
     server: {
       proxy: {
         '/api': {
