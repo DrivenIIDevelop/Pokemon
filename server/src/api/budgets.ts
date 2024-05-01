@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import { Budget } from '../models/Budget'
 
-export const budgetRouter = Router()
+export const budgetsRouter = Router()
 
 export type GetAllResponseBody = PopulatedBudget[]
 
-budgetRouter.get('/', async (req, res) => {
+budgetsRouter.get('/', async (_, res) => {
   const budgets = await Budget.find()
     .populate({ path: 'categories', populate: { path: 'expenses' } })
     .exec()
