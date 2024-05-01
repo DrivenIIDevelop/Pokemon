@@ -1,29 +1,39 @@
-import { mongooseConnect } from '../lib/mongoose'
-import { Expense } from '../models/Expense'
-import { Request, Response } from 'express'
+import { Router } from 'express'
+import { Expense } from '../models'
 
-export default async function handle(req: Request, res: Response): Promise<void> {
-  const { method } = req
-  await mongooseConnect()
+export const router = Router()
 
-  if (method === 'GET') {
-    if (req.query?.id) {
-      res.json(await Expense.findOne({ _id: req.query.id }))
-    } else {
-      res.json(await Expense.find())
-    }
-  } else if (method === 'POST') {
-    const { title, amount, description, frequency, date } = req.body
-    const expenseDoc = await Expense.create({ title, amount, description, frequency, date })
-    res.json(expenseDoc)
-  } else if (method === 'PUT') {
-    const { title, amount, description, frequency, date } = req.body
-    await Expense.updateOne({ _id: req.query.id }, { title, amount, description, frequency, date })
-    res.json(true)
-  } else if (method === 'DELETE') {
-    if (req.query?.id) {
-      await Expense.deleteOne({ _id: req.query.id })
-      res.json(true)
-    }
-  }
-}
+export type GetResponseBody = Expense | null
+
+router.get('/:id', async (req, res) => {
+  const expense = await Expense.findOne({ _id: req.params.id }).exec()
+  res.json(expense)
+})
+
+export type CreateRequestBody = Omit<Expense, '_id'>
+export type CreateResponseBody = Expense
+
+router.post('/:id', async (req, res) => {
+  const { title, amount, description, frequency, date, category } = req.body
+  const expenseDoc = await Expense.create({ title, amount, description, frequency, date, category })
+  res.json(expenseDoc)
+})
+
+export type UpdateRequestBody = Omit<Expense, '_id' | 'expense'>
+export type UpdateResponseBody = Expense
+
+router.put('/:id', async (req, res) => {
+  const { title, amount, description, frequency, date, category } = req.body
+  const updatedExpense = await Expense.findOneAndUpdate(
+    { _id: req.params.id },
+    { title, amount, description, frequency, date, category },
+  ).exec()
+  res.json(updatedExpense)
+})
+
+export type DeleteResponseBody = boolean
+
+router.delete('/:id', async (req, res) => {
+  const result = await Expense.deleteOne({ _id: req.params.id }).exec()
+  res.json(result.acknowledged)
+})

@@ -3,7 +3,7 @@ import { Category } from '../models'
 
 export const router = Router()
 
-export type GetResponseBody = Category
+export type GetResponseBody = Category | null
 
 router.get('/:id', async (req, res) => {
   const budget = await Category.findOne({ _id: req.params.id }).exec()
