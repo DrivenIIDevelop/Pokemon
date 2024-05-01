@@ -13,7 +13,7 @@ categoriesRouter.get('/:id', async (req, res) => {
 export type CreateRequestBody = Omit<Category, '_id'>
 export type CreateResponseBody = Category
 
-categoriesRouter.post('/:id', async (req, res) => {
+categoriesRouter.post('/', async (req, res) => {
   const { budget, name, limit, icon } = req.body
   const budgetDoc = await Category.create({ budget, name, limit, icon })
   res.json(budgetDoc)

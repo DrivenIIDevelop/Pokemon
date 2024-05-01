@@ -13,7 +13,7 @@ expensesRouter.get('/:id', async (req, res) => {
 export type CreateRequestBody = Omit<Expense, '_id'>
 export type CreateResponseBody = Expense
 
-expensesRouter.post('/:id', async (req, res) => {
+expensesRouter.post('/', async (req, res) => {
   const { title, amount, description, frequency, date, category } = req.body
   const expenseDoc = await Expense.create({ title, amount, description, frequency, date, category })
   res.json(expenseDoc)
