@@ -4,10 +4,13 @@ export interface IBudget extends Omit<Budget, '_id'> {
   _id: Types.ObjectId
 }
 
-const BudgetSchema = new Schema<IBudget>({
-  name: { type: String, required: true },
-  limit: { type: Number, required: true },
-})
+const BudgetSchema = new Schema<IBudget>(
+  {
+    name: { type: String, required: true },
+    limit: { type: Number, required: true },
+  },
+  { toJSON: { virtuals: true } },
+)
 
 BudgetSchema.virtual('categories', {
   ref: 'Category',
