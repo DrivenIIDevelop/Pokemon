@@ -6,6 +6,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["vite-plugin-remix-router/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@server/api/*": ["../server/src/api/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

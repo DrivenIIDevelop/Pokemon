@@ -22,6 +22,19 @@ module.exports = {
       'warn',
       { allowConstantExport: true, allowExportNames: ['loader', 'action'] },
     ],
+    'no-restricted-imports': 'off',
+    '@typescript-eslint/no-restricted-imports': [
+      'error',
+      {
+        patterns: [
+          {
+            group: ['@server/*'],
+            message: 'Imports from the server should be type only.',
+            allowTypeImports: true,
+          },
+        ],
+      },
+    ],
   },
   settings: {
     react: {
