@@ -62,6 +62,16 @@ const theme = responsiveFontSizes(
           },
         },
       },
+      MuiDrawer: {
+        styleOverrides: {
+          paperAnchorBottom: {
+            maxHeight: '90%',
+            minHeight: '40%',
+            borderTopLeftRadius: 16,
+            borderTopRightRadius: 16,
+          },
+        },
+      },
     },
   }),
 )

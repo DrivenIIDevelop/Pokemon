@@ -5,12 +5,15 @@ import { getBudgets } from '../../api/budgets'
 import { BudgetMode, BudgetPageContext, BudgetsDispatchContext, budgetsReducer } from '../../contexts/BudgetsContext'
 import BudgetGraph from '../../components/budget/BudgetGraph'
 import BudgetComponenet from '../../components/budget/Budget'
+import NewExpenseDrawer from '../../components/budget/NewExpenseDrawer'
 
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
+import Fab from '@mui/material/Fab'
+import AddIcon from '@mui/icons-material/Add'
 
 type LoadedData = Awaited<ReturnType<typeof getBudgets>>
 
@@ -22,6 +25,8 @@ export function Component() {
   const [mode, setMode] = useState<BudgetMode>('budget')
   const initialBudgets = useLoaderData() as LoadedData
   const [budgets, dispatch] = useReducer(budgetsReducer, initialBudgets)
+
+  const [openDrawer, setOpenDrawer] = useState<DrawerType>()
 
   return (
     <BudgetPageContext.Provider value={{ budgets, mode }}>
@@ -46,8 +51,23 @@ export function Component() {
               ))}
             </Stack>
           </Stack>
+          <Fab
+            size="medium"
+            color="primary"
+            sx={{ position: 'fixed', bottom: 16, right: 16 }}
+            onClick={() => setOpenDrawer(mode == 'expenses' ? 'newUncategorizedExpense' : undefined)}
+          >
+            <AddIcon />
+          </Fab>
+          <NewExpenseDrawer
+            isOpen={openDrawer == 'newUncategorizedExpense'}
+            close={() => setOpenDrawer(undefined)}
+            categories={budgets.flatMap(budget => budget.categories)}
+          />
         </Container>
       </BudgetsDispatchContext.Provider>
     </BudgetPageContext.Provider>
   )
 }
+
+type DrawerType = 'newUncategorizedExpense'
