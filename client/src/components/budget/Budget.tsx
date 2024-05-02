@@ -1,3 +1,5 @@
+import Category from './Category'
+
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Accordion from '@mui/material/Accordion'
@@ -6,7 +8,6 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
-import Category from './Category'
 
 interface BudgetProps {
   budget: Budget & { categories: (Category & { expenses: Expense[] })[] }
