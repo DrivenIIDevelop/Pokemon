@@ -13,14 +13,13 @@ export default async function request<T = void>(
   method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET',
   body?: Record<string, string> | string,
 ): Promise<T> {
-  console.log(body)
   let url = '/api/' + path
-  let options: RequestInit = { method }
+  const options: RequestInit = { method }
   if (body !== undefined) {
     if (typeof body == 'string') {
       options.body = body
       options.headers = { 'Content-Type': 'application/json' }
-    } else url += '?' + new URLSearchParams(body as Record<string, string>).toString()
+    } else url += '?' + new URLSearchParams(body).toString()
   }
   const res = await fetch(url, options)
   if (res.ok) {

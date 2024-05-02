@@ -66,7 +66,14 @@ export default function NewExpenseDrawer({ isOpen, close, categories }: DrawerCo
             Add Expense
           </Typography>
           {Boolean(category && amountStr && title && !amountError) && (
-            <Button onClick={() => createNewExpesnse()} color="inherit" size="large" sx={{ p: 0 }}>
+            <Button
+              onClick={() => {
+                void createNewExpesnse()
+              }}
+              color="inherit"
+              size="large"
+              sx={{ p: 0 }}
+            >
               Create
             </Button>
           )}
