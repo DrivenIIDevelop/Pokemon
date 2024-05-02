@@ -37,9 +37,9 @@ React is the industry standard for creating reusable components. It also helps w
 - [Fireship - React in 100 Seconds](https://youtu.be/Tn6-PIqc4UM?si=3dwpHx6Y5WsljKbP)
 - [Fireship - React Playlist](https://youtube.com/playlist?list=PL0vfts4VzfNgUUEtEjxDVfh4iocVR3qIb&si=jmJh0qkJMn4YMKEO)
 
-### [React Redux (Redux Toolkit)](https://redux-toolkit.js.org/)
+### [Immer](https://immerjs.github.io/immer/)
 
-After a while, state management in React can get a bit messy. Redux gives us the power to manage data on a more global scale. Eliminating any need to pass data down through a dozen components (aka. prop drilling).
+In react, the state value itself is immutable. You have to create a copy of the entire state to change values. Immer solves that problem by handling everything behind the scenes, allowing us to write much less boilerplate.
 
 ### [Remix Router (Vite Plugin)](https://vite-remix-router.vercel.app/)
 
@@ -60,19 +60,6 @@ MUI provides a components library that follows Material UI's design guidelines. 
 
 - [Components](https://mui.com/material-ui/all-components/)
 - [Component API](https://mui.com/material-ui/api/accordion/)
-
-### [Tailwind](https://tailwindcss.com/)
-
-No one likes writing CSS. Hence, Tailwind. Unlike Bootstrap, it's utility-first, giving us much more control by default.
-
-#### Documentation & Tutorials
-
-- [Fireship - Tailwind in 100 Seconds](https://youtu.be/mr15Xzb1Ook?si=ArFHS_-GZfcVTPyT)
-- [Fireship - Ultimate Tailwind CSS Tutorial](https://youtu.be/pfaSUYaSgRo?si=ChCeBqk2f2kuJi8U)
-
-### [PostCSS](https://postcss.org/)
-
-PostCSS itself doesn't do anything, but it allows us to add a huge [library of plugins](vhttps://www.postcss.parts/) that makes writing CSS easier. As we can't avoid CSS files all together, it will definitely come in handy.
 
 ### [ESLint](https://eslint.org/)
 
