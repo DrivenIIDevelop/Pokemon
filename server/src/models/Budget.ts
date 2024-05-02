@@ -1,10 +1,21 @@
-import { Schema, model, models } from 'mongoose'
+import { Schema, Types, model } from 'mongoose'
 
-const BudgetSchema = new Schema({
-  name: { type: String, required: true },
-  limit: { type: Number, required: true },
-  description: { type: String },
-  categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+export interface IBudget extends Omit<Budget, '_id'> {
+  _id: Types.ObjectId
+}
+
+const BudgetSchema = new Schema<IBudget>(
+  {
+    name: { type: String, required: true },
+    limit: { type: Number, required: true },
+  },
+  { toJSON: { virtuals: true } },
+)
+
+BudgetSchema.virtual('categories', {
+  ref: 'Category',
+  localField: '_id',
+  foreignField: 'budget',
 })
 
-export const Budget = models.Budget || model('Budget', BudgetSchema)
+export const Budget = model('Budget', BudgetSchema)

@@ -1,6 +1,6 @@
 import dotenvFlow from 'dotenv-flow'
 import express from 'express'
-import { budgetRouter } from './api'
+import { budgetsRouter, categoriesRouter, expensesRouter } from './api'
 import { mongooseConnect } from './lib/mongoose'
 import './models'
 
@@ -19,7 +19,9 @@ connectDatabase().then(() => {
 function createApi() {
   const app = express()
   app.use(express.json())
-  app.use('/budgets', budgetRouter)
+  app.use('/budgets', budgetsRouter)
+  app.use('/categories', categoriesRouter)
+  app.use('/expenses', expensesRouter)
   return app
 }
 
