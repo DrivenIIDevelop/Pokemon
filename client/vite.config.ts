@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@server/api/': resolve(__dirname, '../server/src/api/'),
+        '@api': resolve(__dirname, './src/api'),
+        '@components': resolve(__dirname, './src/components'),
+        '@contexts': resolve(__dirname, './src/contexts'),
       },
     },
     plugins: [react(), RemixRouter()],
