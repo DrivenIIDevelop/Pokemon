@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
-import { createExpense } from '../../api/expenses'
-import { BudgetsDispatchContext } from '../../contexts/BudgetsContext'
+import { createExpense } from '@api/expenses'
+import { BudgetsDispatchContext } from '@contexts/BudgetsContext'
 
 import Drawer from '@mui/material/Drawer'
 import Box from '@mui/material/Box'

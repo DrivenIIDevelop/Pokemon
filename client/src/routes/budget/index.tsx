@@ -1,11 +1,11 @@
 import { useState, useReducer } from 'react'
 import { LoaderFunction, useLoaderData } from 'react-router-dom'
-import { getBudgets } from '../../api/budgets'
+import { getBudgets } from '@api/budgets'
+import { BudgetMode, BudgetPageContext, BudgetsDispatchContext, budgetsReducer } from '@contexts/BudgetsContext'
 
-import { BudgetMode, BudgetPageContext, BudgetsDispatchContext, budgetsReducer } from '../../contexts/BudgetsContext'
-import BudgetGraph from '../../components/budget/BudgetGraph'
-import BudgetComponenet from '../../components/budget/Budget'
-import NewExpenseDrawer from '../../components/budget/NewExpenseDrawer'
+import BudgetGraph from '@components/budget/BudgetGraph'
+import BudgetComponenet from '@components/budget/Budget'
+import NewExpenseDrawer from '@components/budget/NewExpenseDrawer'
 
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'

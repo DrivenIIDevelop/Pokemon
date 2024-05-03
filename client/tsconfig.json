@@ -8,7 +8,10 @@
     "types": ["vite-plugin-remix-router/client"],
     "baseUrl": ".",
     "paths": {
-      "@server/api/*": ["../server/src/api/*"]
+      "@server/api/*": ["../server/src/api/*"],
+      "@api/*": ["./src/api/*"],
+      "@components/*": ["./src/components/*"],
+      "@contexts/*": ["./src/contexts/*"]
     },
 
     /* Bundler mode */
