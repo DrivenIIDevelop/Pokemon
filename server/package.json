@@ -6,13 +6,11 @@
   "scripts": {
     "build": "npx tsc",
     "prestart": "npx tsc",
-    "start": "node dist/server.js"
+    "start": "node ./dist/index.js"
   },
-  "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv-flow": "^4.1.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.3.2",

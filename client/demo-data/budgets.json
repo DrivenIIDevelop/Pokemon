@@ -4,7 +4,7 @@
     "name": "Needs",
     "limit": 640,
     "total": 280,
-    "subcategories": [
+    "categories": [
       {
         "id": "57160b03-b4df-45fb-87b3-426a042e639c",
         "name": "Food",
@@ -58,7 +58,7 @@
     "name": "Wants",
     "limit": 300,
     "total": 155,
-    "subcategories": [
+    "categories": [
       {
         "id": "fbeb20cb-bb90-4fb2-9dca-abb8e85f94c7",
         "name": "Entertainment",
@@ -104,7 +104,7 @@
     "name": "Bills",
     "limit": 600,
     "total": 450,
-    "subcategories": [
+    "categories": [
       {
         "id": "fff74f44-f61b-42b1-9f99-3c4b5400d122",
         "name": "Rent",

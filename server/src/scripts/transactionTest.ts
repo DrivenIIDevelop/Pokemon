@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { Transaction } from '../models/Transactions'
+import { Transaction } from '../models/Transaction'
 
 interface TestTransaction {
   title: string

@@ -1,25 +1,30 @@
-declare interface Category {
-  id: string
+declare interface Budget {
+  _id: string
   name: string
   limit: number
-  total: number
-  subcategories: Subcategory[]
 }
 
-declare interface Subcategory {
-  id: string
+declare interface Category<PopulateParent = false> {
+  _id: string
   name: string
   limit: number
-  total: number
   icon?: string
-  expenses: Expense[]
+  budget?: PopulateParent extends true ? Budget : string
 }
 
-declare interface Expense {
-  id: string
+declare interface Expense<PopulateParent = false> {
+  _id: string
   title: string
-  amount: 15
+  amount: number
   description?: string
   frequency?: 'weekly' | 'bi-weekly' | 'monthly' | 'quarterly' | 'annually'
-  date: string
+  date: Date
+  category?: PopulateParent extends true ? Category : string
+}
+
+declare interface PopulatedBudget extends Budget {
+  categories: PopulatedCategory[]
+}
+declare interface PopulatedCategory extends Category {
+  expenses: Expense[]
 }
