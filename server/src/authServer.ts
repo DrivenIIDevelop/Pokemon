@@ -32,22 +32,27 @@ app.get('/posts', authenticateToken, (req: Request, res: Response) => {
 })
 
 app.post('/register', (req: Request, res: Response) => {
-  const { username, password }: { username: string, password: string } = req.body;
+  const { username, password }: { username: string; password: string } = req.body
 
-  bcrypt.hash(password, 10).then((hash: string) => {
-    Accounts.create({
+  bcrypt
+    .hash(password, 10)
+    .then((hash: string) => {
+      Accounts.create({
         username: username,
         password: hash,
-    }).then(() => {
-        res.json("User registered successfully");
-    }).catch((err: Error) => {
-        console.error("Error occurred during registration:", err);
-        res.status(500).json({ error: "An error occurred during registration." });
-    });
-}).catch((err: Error) => {
-    console.error("Error occurred while hashing password:", err);
-    res.status(500).json({ error: "An error occurred while processing your request." });
-});
+      })
+        .then(() => {
+          res.json('User registered successfully')
+        })
+        .catch((err: Error) => {
+          console.error('Error occurred during registration:', err)
+          res.status(500).json({ error: 'An error occurred during registration.' })
+        })
+    })
+    .catch((err: Error) => {
+      console.error('Error occurred while hashing password:', err)
+      res.status(500).json({ error: 'An error occurred while processing your request.' })
+    })
 })
 
 app.post('/login', (req: Request, res: Response) => {
