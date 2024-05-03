@@ -14,12 +14,13 @@ interface DrawerContentProps {
   isOpen: boolean
   close: () => void
   categories: Category[]
+  category?: Category
 }
 
-export default function NewExpenseDrawer({ isOpen, close, categories }: DrawerContentProps) {
+export default function ExpenseDrawer({ isOpen, close, categories, category: originalCatgory }: DrawerContentProps) {
   const budgetsDispatch = useContext(BudgetsDispatchContext)
 
-  const [category, setCategory] = useState<Category | undefined>()
+  const [category, setCategory] = useState<Category | undefined>(originalCatgory)
   const [title, setTitle] = useState('')
   const [amountStr, setAmountStr] = useState('')
   const [amountError, setAmountError] = useState<string>()
@@ -55,7 +56,10 @@ export default function NewExpenseDrawer({ isOpen, close, categories }: DrawerCo
       <Box display="flex" flexDirection="column" p={2}>
         <Box display="grid" gridTemplateColumns="1fr 3fr 1fr" alignItems="center" mb={2}>
           <Button
-            onClick={() => (category ? setCategory(undefined) : closeAndReset())}
+            onClick={() => {
+              if (category && !originalCatgory) setCategory(undefined)
+              else closeAndReset()
+            }}
             color="inherit"
             size="large"
             sx={{ p: 0 }}
