@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, envDir, '')
   return {
     envDir,
+    resolve: {
+      alias: {
+        '@server/api/': resolve(__dirname, '../server/src/api/'),
+      },
+    },
     plugins: [react(), RemixRouter()],
     server: {
       proxy: {
