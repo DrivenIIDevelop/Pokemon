@@ -13,7 +13,7 @@ export const BudgetsDispatchContext = createContext<Dispatch<Action>>(() => {})
 type Action =
   | { type: 'addExpense'; budgetId: string; expense: Expense }
   | { type: 'removeExpense'; budgetId: string; categoryId: string; expenseId: string }
-  | { type: 'updateExpense'; budgetId: string; categoryId: string; expenseId: string; updates: Partial<Expense> }
+  | { type: 'updateExpense'; budgetId: string; categoryId: string; expenseId: string; updatedExpense: Expense }
 
 export const budgetsReducer = produce((budgets: PopulatedBudget[], action: Action) => {
   switch (action.type) {
@@ -31,9 +31,12 @@ export const budgetsReducer = produce((budgets: PopulatedBudget[], action: Actio
       if (!budget) throw Error(`Couldn't find budget with id "${action.budgetId}"`)
       const category = budget.categories.find(category => category._id === action.categoryId)
       if (!category) throw Error(`Couldn't find category in budget (${budget._id}) with id "${action.categoryId}"`)
-      const expenseIndex = category.expenses.findIndex(expense => expense._id === action.expenseId)
-      if (!expenseIndex) throw Error(`Couldn't find expense in budget (${category._id}) with id "${action.categoryId}"`)
-      category.expenses[expenseIndex] = { ...category.expenses[expenseIndex], ...action.updates }
+      const expense = category.expenses.find(expense => expense._id === action.expenseId)
+      if (!expense) throw Error(`Couldn't find expense in budget (${category._id}) with id "${action.categoryId}"`)
+      for (const key in action.updatedExpense) {
+        // @ts-expect-error - Typescript doesn't like keys
+        expense[key] = action.updatedExpense[key]
+      }
       break
     }
 
@@ -43,7 +46,8 @@ export const budgetsReducer = produce((budgets: PopulatedBudget[], action: Actio
       const category = budget.categories.find(category => category._id === action.categoryId)
       if (!category) throw Error(`Couldn't find category in budget (${budget._id}) with id "${action.categoryId}"`)
       const expenseIndex = category.expenses.findIndex(expense => expense._id === action.expenseId)
-      if (!expenseIndex) throw Error(`Couldn't find expense in budget (${category._id}) with id "${action.categoryId}"`)
+      if (expenseIndex == -1)
+        throw Error(`Couldn't find expense in budget (${category._id}) with id "${action.categoryId}"`)
       category.expenses.splice(expenseIndex, 1)
       break
     }

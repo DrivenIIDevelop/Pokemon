@@ -57,18 +57,13 @@ export default function Category({ category }: CategoryProps) {
       <AccordionDetails>
         <Stack spacing={1}>
           {category.expenses.map(expense => (
-            <Expense expense={expense} key={expense._id} />
+            <Expense expense={expense} category={category} key={expense._id} />
           ))}
         </Stack>
       </AccordionDetails>
       {
         mode == 'expenses' ? (
-          <ExpenseDrawer
-            categories={[]}
-            category={category}
-            isOpen={isDrawerOpen}
-            close={() => setIsDrawerOpen(false)}
-          />
+          <ExpenseDrawer category={category} isOpen={isDrawerOpen} close={() => setIsDrawerOpen(false)} />
         ) : (
           <div />
         ) // TODO: Edit category
