@@ -1,0 +1,19 @@
+{
+  "name": "budget-app",
+  "description": "A budget application create by Team Pokemon for DevC 1.0",
+  "license": "MIT",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "format": "npx prettier -w .",
+    "back": "npm run start -w server",
+    "front": "npm run dev -w client"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  }
+}

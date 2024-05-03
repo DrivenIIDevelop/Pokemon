@@ -8,9 +8,7 @@ export function Component() {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        minWidth: '100vw',
-        backgroundColor: 'background.default',
+        height: '100vh',
       }}
     >
       <DrawerAppBar />

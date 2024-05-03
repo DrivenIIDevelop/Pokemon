@@ -1,27 +1,35 @@
-import Box from '@mui/material/Box'
-import Stack from '@mui/material/Stack'
+import Expense from './Expense'
+
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
-import BudgetSubCategory from './BudgetSubCategory'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
-interface BudgetCategoryProps {
-  category: Category
+interface CategoryProps {
+  category: Category & { expenses: Expense[] }
 }
 
-export default function BudgetCategory({ category }: BudgetCategoryProps) {
-  const budgetRatio = category.total / category.limit
+export default function Category({ category }: CategoryProps) {
+  let total = 0
+  category.expenses.forEach(expense => (total += expense.amount))
+  const budgetRatio = total / category.limit
 
   return (
     <Accordion
+      variant="outlined"
       sx={{
-        bgcolor: 'background.200',
+        bgcolor: 'background.300',
+        '&:before': { display: 'none' },
       }}
+      disableGutters
     >
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ '& .MuiAccordionSummary-content': { my: 1 } }}>
+        <FiberManualRecordIcon />
         <Box flex={1}>
           <Typography>{category.name}</Typography>
           <LinearProgress
@@ -35,8 +43,8 @@ export default function BudgetCategory({ category }: BudgetCategoryProps) {
       </AccordionSummary>
       <AccordionDetails>
         <Stack spacing={1}>
-          {category.subcategories.map(subcategory => (
-            <BudgetSubCategory subcategory={subcategory} key={subcategory.id} />
+          {category.expenses.map(expense => (
+            <Expense expense={expense} key={expense._id} />
           ))}
         </Stack>
       </AccordionDetails>

@@ -1,3 +1,5 @@
+node_modules
+
 # Editor directories and files
 .idea
 .DS_Store
@@ -11,4 +13,8 @@
 *.local
 venv
 .venv
+.env
 __pycache__
+
+# Outputs
+dist

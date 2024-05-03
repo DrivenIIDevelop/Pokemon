@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "types": ["node"],
+
+    "outDir": "dist",
+    "sourceMap": true,
+    "importsNotUsedAsValues": "remove",
+
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+
+    "strict": true
+  },
+  "include": ["src", "../types.d.ts"]
+}
