@@ -2,6 +2,7 @@ import dotenvFlow from 'dotenv-flow'
 import express, { Request, Response, NextFunction } from 'express'
 import { mongooseConnect } from './lib/mongoose'
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 
 dotenvFlow.config()
 

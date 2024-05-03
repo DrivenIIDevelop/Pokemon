@@ -15,7 +15,7 @@ export type CreateResponseBody = Account
 
 accountRouter.post('/', async (req, res) => {
   const { username, firstname, lastname, email, password } = req.body
-  const accountDoc = await Account.create({ username, firstname, lastname, email, password  })
+  const accountDoc = await Account.create({ username, firstname, lastname, email, password })
   res.json(accountDoc)
 })
 
