@@ -5,7 +5,7 @@ import { BudgetMode, BudgetPageContext, BudgetsDispatchContext, budgetsReducer }
 
 import BudgetGraph from '@components/budget/BudgetGraph'
 import BudgetComponenet from '@components/budget/Budget'
-import NewExpenseDrawer from '@components/budget/NewExpenseDrawer'
+import ExpenseDrawer from '@components/budget/ExpenseDrawer'
 
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -59,7 +59,7 @@ export function Component() {
           >
             <AddIcon />
           </Fab>
-          <NewExpenseDrawer
+          <ExpenseDrawer
             isOpen={openDrawer == 'newUncategorizedExpense'}
             close={() => setOpenDrawer(undefined)}
             categories={budgets.flatMap(budget => budget.categories)}
