@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import Category from './Category'
+import { BudgetPageContext } from '@contexts/BudgetsContext'
 
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
@@ -8,12 +10,16 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
+import ButtonBase from '@mui/material/ButtonBase'
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined'
 
 interface BudgetProps {
   budget: Budget & { categories: (Category & { expenses: Expense[] })[] }
 }
 
 export default function Budget({ budget }: BudgetProps) {
+  const { mode } = useContext(BudgetPageContext)
+
   let total = 0
   budget.categories.forEach(cat => cat.expenses.forEach(expense => (total += expense.amount)))
   const budgetRatio = total / budget.limit
@@ -42,6 +48,26 @@ export default function Budget({ budget }: BudgetProps) {
             <Category category={category} key={category._id} />
           ))}
         </Stack>
+        {mode == 'budget' && (
+          <ButtonBase
+            sx={{
+              mt: 1,
+              px: 2,
+              py: 1,
+              width: '100%',
+              borderWidth: 2,
+              borderStyle: 'dashed',
+              borderRadius: 2,
+              borderColor: 'background.400',
+              bgcolor: 'background.300',
+              justifyContent: 'left',
+              gap: 1,
+            }}
+          >
+            <AddBoxOutlinedIcon />
+            <Typography>Add Expense</Typography>
+          </ButtonBase>
+        )}
       </AccordionDetails>
     </Accordion>
   )
