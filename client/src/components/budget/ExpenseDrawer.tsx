@@ -3,6 +3,7 @@ import { createExpense, updateExpense } from '@api/expenses'
 import { BudgetsDispatchContext } from '@contexts/BudgetsContext'
 
 import Drawer from '@mui/material/Drawer'
+import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -130,7 +131,7 @@ export default function ExpenseDrawer({
             ))}
           </Box>
         ) : (
-          <Box>
+          <Stack spacing={1}>
             <TextField
               label="Title"
               fullWidth
@@ -155,7 +156,7 @@ export default function ExpenseDrawer({
               error={Boolean(amountError)}
               helperText={amountError}
             />
-          </Box>
+          </Stack>
         )}
       </Box>
     </Drawer>

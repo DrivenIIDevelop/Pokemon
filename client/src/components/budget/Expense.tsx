@@ -32,7 +32,7 @@ export default function Expense({ category, expense }: ExpenseProps) {
       </Box>
       <Typography fontSize="115%">${expense.amount}</Typography>
       {mode == 'expenses' && (
-        <EditIcon fontSize="large" aria-label="button" sx={{ p: 1 }} onClick={() => setIsDrawerOpen(true)} />
+        <EditIcon fontSize="small" aria-label="button" sx={{ ml: 1 }} onClick={() => setIsDrawerOpen(true)} />
       )}
       <ExpenseDrawer isOpen={isDrawerOpen} close={() => setIsDrawerOpen(false)} expense={expense} category={category} />
     </Box>
