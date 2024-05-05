@@ -19,12 +19,16 @@ categoriesRouter.post('/', async (req, res) => {
   res.json(budgetDoc)
 })
 
-export type UpdateRequestBody = Omit<Category, '_id' | 'budget'>
+export type UpdateRequestBody = Partial<Omit<Category, '_id' | 'budget'>>
 export type UpdateResponseBody = Category
 
 categoriesRouter.put('/:id', async (req, res) => {
   const { name, limit, icon } = req.body
-  const updatedCategory = await Category.findOneAndUpdate({ _id: req.params.id }, { name, limit, icon }).exec()
+  const updatedCategory = await Category.findOneAndUpdate(
+    { _id: req.params.id },
+    { name, limit, icon },
+    { new: true },
+  ).exec()
   res.json(updatedCategory)
 })
 

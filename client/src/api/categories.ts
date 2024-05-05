@@ -9,7 +9,7 @@ export function createCategory(properties: CategoriesApi.CreateRequestBody) {
   return fetch<CategoriesApi.CreateResponseBody>('categories', 'POST', JSON.stringify(properties))
 }
 
-export function updateCatgeory(id: string, properties: CategoriesApi.UpdateRequestBody) {
+export function updateCatgeroy(id: string, properties: CategoriesApi.UpdateRequestBody) {
   return fetch<CategoriesApi.UpdateResponseBody>('categories/' + id, 'PUT', JSON.stringify(properties))
 }
 
