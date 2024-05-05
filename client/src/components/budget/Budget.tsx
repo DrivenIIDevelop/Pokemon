@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { BudgetPageContext } from '@contexts/BudgetsContext'
 
 import CategoryAccordion from './CategoryAccordion'
+import NewCategoryAccordion from './CategoryAccordion/NewCategory'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Accordion from '@mui/material/Accordion'
@@ -46,26 +47,7 @@ export default function Budget({ budget }: BudgetProps) {
             <CategoryAccordion category={category} key={category._id} />
           ))}
         </Stack>
-        {mode == 'budget' && (
-          <ButtonBase
-            sx={{
-              mt: 1,
-              px: 2,
-              py: 1,
-              width: '100%',
-              borderWidth: 2,
-              borderStyle: 'dashed',
-              borderRadius: 2,
-              borderColor: 'background.400',
-              bgcolor: 'background.300',
-              justifyContent: 'left',
-              gap: 1,
-            }}
-          >
-            <AddBoxOutlinedIcon />
-            <Typography>Add Expense</Typography>
-          </ButtonBase>
-        )}
+        {mode == 'budget' && <NewCategoryAccordion budgetId={budget._id} />}
       </AccordionDetails>
     </Accordion>
   )
