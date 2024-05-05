@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import Category from './Category'
 import { BudgetPageContext } from '@contexts/BudgetsContext'
 
+import CategoryAccordion from './CategoryAccordion'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Accordion from '@mui/material/Accordion'
@@ -10,8 +10,6 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import LinearProgress from '@mui/material/LinearProgress'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
-import ButtonBase from '@mui/material/ButtonBase'
-import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined'
 
 interface BudgetProps {
   budget: PopulatedBudget
@@ -45,7 +43,7 @@ export default function Budget({ budget }: BudgetProps) {
       <AccordionDetails>
         <Stack spacing={1}>
           {budget.categories.map(category => (
-            <Category category={category} key={category._id} />
+            <CategoryAccordion category={category} key={category._id} />
           ))}
         </Stack>
         {mode == 'budget' && (
