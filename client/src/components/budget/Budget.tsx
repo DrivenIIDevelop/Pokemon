@@ -14,7 +14,7 @@ import ButtonBase from '@mui/material/ButtonBase'
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined'
 
 interface BudgetProps {
-  budget: Budget & { categories: (Category & { expenses: Expense[] })[] }
+  budget: PopulatedBudget
 }
 
 export default function Budget({ budget }: BudgetProps) {

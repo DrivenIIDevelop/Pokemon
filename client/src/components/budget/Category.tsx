@@ -16,7 +16,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import AddIcon from '@mui/icons-material/Add'
 
 interface CategoryProps {
-  category: Category & { expenses: Expense[] }
+  category: PopulatedCategory
 }
 
 export default function Category({ category }: CategoryProps) {
