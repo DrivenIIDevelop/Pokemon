@@ -35,7 +35,7 @@ export function Component() {
             <Box display="flex" justifyContent="center">
               <ToggleButtonGroup
                 value={mode}
-                onChange={(_, value: BudgetMode) => setMode(value)}
+                onChange={(_, value: BudgetMode) => value && setMode(value)}
                 exclusive
                 size="small"
               >
