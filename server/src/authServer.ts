@@ -34,21 +34,20 @@ app.get('/posts', authenticateToken, (req: Request, res: Response) => {
 
 app.post('/register', async (req: Request, res: Response) => {
   try {
-    const { username, password }: { username: string; password: string } = req.body;
-    const hash: string = await bcrypt.hash(password, 10);
-    
+    const { username, password }: { username: string; password: string } = req.body
+    const hash: string = await bcrypt.hash(password, 10)
+
     await Account.create({
       username: username,
       password: hash,
-    });
+    })
 
-    res.json('User registered successfully');
+    res.json('User registered successfully')
   } catch (err) {
-    console.error('Error occurred during registration:', err);
-    res.status(500).json({ error: 'An error occurred during registration.' });
+    console.error('Error occurred during registration:', err)
+    res.status(500).json({ error: 'An error occurred during registration.' })
   }
-});
-
+})
 
 app.post('/login', (req: Request, res: Response) => {
   const username: string = req.body.username
