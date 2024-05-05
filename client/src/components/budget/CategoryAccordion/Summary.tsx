@@ -9,7 +9,7 @@ import Button from '@mui/material/Button'
 import LinearProgress from '@mui/material/LinearProgress'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
+import Icon from '@mui/material/Icon'
 import AddIcon from '@mui/icons-material/Add'
 import EditIcon from '@mui/icons-material/Edit'
 
@@ -57,8 +57,12 @@ export default function CategoryAccordianSummary({
               opacity: 0.54,
             }}
           />
-          <Box onClick={toggleExpanded} flex={1} display="flex">
-            <FiberManualRecordIcon />
+          <Box onClick={toggleExpanded} flex={1} display="flex" alignItems={'center'}>
+            {category.icon && (
+              <Icon fontSize="small" sx={{ mr: 0.75 }}>
+                {category.icon}
+              </Icon>
+            )}
             <Box flex={1}>
               <Typography>{category.name}</Typography>
               <LinearProgress
