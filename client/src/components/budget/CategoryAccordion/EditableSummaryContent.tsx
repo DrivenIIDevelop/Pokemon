@@ -14,7 +14,7 @@ export interface EditableSummaryContentProps {
 
 export default function EditableSummaryContent({ category, handleSubmit }: EditableSummaryContentProps) {
   const [name, setName] = useState(category?.name ?? '')
-  const [icon, setIcon] = useState(category?.icon ?? '')
+  const [icon] = useState(category?.icon ?? '') // TODO - Allow user to pick an icon
   const [limitStr, setLimitStr] = useState(category ? category?.limit.toString() : '')
   const [limitError, setLimitError] = useState(false)
 
