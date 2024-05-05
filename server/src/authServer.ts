@@ -1,7 +1,9 @@
 import dotenvFlow from 'dotenv-flow'
 import express, { Request, Response, NextFunction } from 'express'
 import { mongooseConnect } from './lib/mongoose'
+import { Account } from './models/Account'
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 
 dotenvFlow.config()
 
@@ -30,6 +32,23 @@ app.get('/posts', authenticateToken, (req: Request, res: Response) => {
   res.json(posts.filter(post => post.username === user.name))
 })
 
+app.post('/register', async (req: Request, res: Response) => {
+  try {
+    const { username, password }: { username: string; password: string } = req.body
+    const hash: string = await bcrypt.hash(password, 10)
+
+    await Account.create({
+      username: username,
+      password: hash,
+    })
+
+    res.json('User registered successfully')
+  } catch (err) {
+    console.error('Error occurred during registration:', err)
+    res.status(500).json({ error: 'An error occurred during registration.' })
+  }
+})
+
 app.post('/login', (req: Request, res: Response) => {
   const username: string = req.body.username
   const user: User = { name: username }
@@ -53,14 +72,3 @@ function authenticateToken(req: Request, res: Response, next: NextFunction) {
     next()
   })
 }
-
-mongooseConnect()
-  .then(() => {
-    console.log('MongoDB connected successfully')
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`)
-    })
-  })
-  .catch(err => {
-    console.error('MongoDB connection error:', err)
-  })
