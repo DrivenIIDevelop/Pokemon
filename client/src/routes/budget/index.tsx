@@ -3,9 +3,8 @@ import { LoaderFunction, useLoaderData } from 'react-router-dom'
 import { getBudgets } from '@api/budgets'
 import { BudgetMode, BudgetPageContext, BudgetsDispatchContext, budgetsReducer } from '@contexts/BudgetsContext'
 
-import BudgetGraph from '@components/budget/BudgetGraph'
 import BudgetComponenet from '@components/budget/Budget'
-import NewExpenseDrawer from '@components/budget/NewExpenseDrawer'
+import ExpenseDrawer from '@components/budget/ExpenseDrawer'
 
 import Container from '@mui/material/Container'
 import Stack from '@mui/material/Stack'
@@ -36,7 +35,7 @@ export function Component() {
             <Box display="flex" justifyContent="center">
               <ToggleButtonGroup
                 value={mode}
-                onChange={(_, value: BudgetMode) => setMode(value)}
+                onChange={(_, value: BudgetMode) => value && setMode(value)}
                 exclusive
                 size="small"
               >
@@ -44,7 +43,7 @@ export function Component() {
                 <ToggleButton value="expenses">Expenses</ToggleButton>
               </ToggleButtonGroup>
             </Box>
-            <BudgetGraph />
+            {/* TODO - Budget Graph */}
             <Stack spacing={1.5}>
               {budgets.map(budget => (
                 <BudgetComponenet budget={budget} key={budget._id} />
@@ -59,7 +58,7 @@ export function Component() {
           >
             <AddIcon />
           </Fab>
-          <NewExpenseDrawer
+          <ExpenseDrawer
             isOpen={openDrawer == 'newUncategorizedExpense'}
             close={() => setOpenDrawer(undefined)}
             categories={budgets.flatMap(budget => budget.categories)}

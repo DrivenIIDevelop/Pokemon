@@ -1,5 +1,8 @@
-import Category from './Category'
+import { useContext } from 'react'
+import { BudgetPageContext } from '@contexts/BudgetsContext'
 
+import CategoryAccordion from './CategoryAccordion'
+import NewCategoryAccordion from './CategoryAccordion/NewCategory'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Accordion from '@mui/material/Accordion'
@@ -10,10 +13,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Typography from '@mui/material/Typography'
 
 interface BudgetProps {
-  budget: Budget & { categories: (Category & { expenses: Expense[] })[] }
+  budget: PopulatedBudget
 }
 
 export default function Budget({ budget }: BudgetProps) {
+  const { mode } = useContext(BudgetPageContext)
+
   let total = 0
   budget.categories.forEach(cat => cat.expenses.forEach(expense => (total += expense.amount)))
   const budgetRatio = total / budget.limit
@@ -39,9 +44,10 @@ export default function Budget({ budget }: BudgetProps) {
       <AccordionDetails>
         <Stack spacing={1}>
           {budget.categories.map(category => (
-            <Category category={category} key={category._id} />
+            <CategoryAccordion category={category} key={category._id} />
           ))}
         </Stack>
+        {mode == 'budget' && <NewCategoryAccordion budgetId={budget._id} />}
       </AccordionDetails>
     </Accordion>
   )

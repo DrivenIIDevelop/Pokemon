@@ -19,7 +19,7 @@ expensesRouter.post('/', async (req, res) => {
   res.json(expenseDoc)
 })
 
-export type UpdateRequestBody = Omit<Expense, '_id' | 'expense'>
+export type UpdateRequestBody = Partial<Omit<Expense, '_id' | 'expense'>>
 export type UpdateResponseBody = Expense
 
 expensesRouter.put('/:id', async (req, res) => {
@@ -27,6 +27,7 @@ expensesRouter.put('/:id', async (req, res) => {
   const updatedExpense = await Expense.findOneAndUpdate(
     { _id: req.params.id },
     { title, amount, description, frequency, date, category },
+    { new: true },
   ).exec()
   res.json(updatedExpense)
 })
