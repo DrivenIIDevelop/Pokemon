@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Box from '@mui/material/Box'
-import './index.css'
+import DrawerAppBar from '@components/DrawerAppBar'
 
 /** The main page layout */
 export function Component() {
@@ -10,6 +10,7 @@ export function Component() {
         height: '100vh',
       }}
     >
+      <DrawerAppBar />
       <Outlet />
     </Box>
   )

@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
+import 'material-icons/iconfont/material-icons.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
