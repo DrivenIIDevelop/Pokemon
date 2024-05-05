@@ -57,7 +57,12 @@ export default function ExpenseDrawer({
           })
         } else {
           const createdExpense = await createExpense({ title, amount, category: category._id, date: new Date() })
-          budgetsDispatch({ type: 'addExpense', budgetId: category.budget!, expense: createdExpense })
+          budgetsDispatch({
+            type: 'addExpense',
+            budgetId: category.budget!,
+            categoryId: category._id,
+            expense: createdExpense,
+          })
         }
       } catch (error) {
         // TODO: Handle errors properly
